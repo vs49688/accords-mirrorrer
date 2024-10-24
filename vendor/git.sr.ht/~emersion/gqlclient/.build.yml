@@ -1,0 +1,15 @@
+image: alpine/latest
+packages:
+  - go
+sources:
+  - https://git.sr.ht/~emersion/gqlclient
+tasks:
+  - build: |
+      cd gqlclient
+      go build -v ./...
+  - test: |
+      cd gqlclient
+      go test -v ./...
+  - gofmt: |
+      cd gqlclient
+      test -z $(gofmt -l .)

@@ -1,0 +1,10 @@
+schema: schema.graphql
+extensions:
+  endpoints:
+    # NB: Can't use, needs auth
+    #accords-library:
+    #  url: https://strapi.accords-library.com/graphql
+    local:
+      headers:
+        Authorization: Bearer 4e50f726a11202a46165cb8677657991b3383ea4860e76abdd54a479c0cbc95836c88044eaf7f6cf9af8f1e5bbd5bad1a283682880f9622fe308bd4a8f1280aa638178fe46930640df9bbd8e1373debbc5d0a9021ed87521db31745798b59794a14d9ca14376b9789193d9f5ab8d4fcae896e7172dc801d685c8afc0418c78af
+      url: http://localhost:1337/graphql

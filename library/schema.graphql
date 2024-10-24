@@ -1,0 +1,4146 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+union GenericMorph = AudioSubtype | Category | Chronicle | ChroniclesChapter | ChronologyEra | ChronologyItem | ComponentBasicsCredits | ComponentBasicsDatepicker | ComponentBasicsFileSize | ComponentBasicsPrice | ComponentBasicsSize | ComponentBasicsUrl | ComponentCollectionsComponentAliases | ComponentCollectionsComponentBody | ComponentCollectionsComponentDefinition | ComponentCollectionsComponentEvent | ComponentCollectionsComponentGlossaryDefinition | ComponentCollectionsComponentLibraryCover | ComponentCollectionsComponentLibraryDustJacket | ComponentCollectionsComponentLibraryImages | ComponentCollectionsComponentLibraryObiBelt | ComponentCollectionsComponentTitles | ComponentCollectionsComponentWeaponStory | ComponentCollectionsComponentWikiDefinition | ComponentMetadataAudio | ComponentMetadataBooks | ComponentMetadataGame | ComponentMetadataGroup | ComponentMetadataMerch | ComponentMetadataOther | ComponentMetadataVideo | ComponentPageBuilderGallery | ComponentPageBuilderGrid | ComponentPageBuilderTabs | ComponentRangeGameAspect | ComponentRangeOther | ComponentRangePageRange | ComponentRangeTimeRange | ComponentSetsAudioSet | ComponentSetsScanSet | ComponentSetsTextSet | ComponentSetsTrackSet | ComponentSetsVideoSet | ComponentSetsWikiSet | ComponentSourceUrlSource | ComponentTranslationsAudioSets | ComponentTranslationsBio | ComponentTranslationsCategoriesTitle | ComponentTranslationsChronicles | ComponentTranslationsChronologyEra | ComponentTranslationsChronologyItem | ComponentTranslationsGamePlatformsTranslations | ComponentTranslationsGlossaryDefinition | ComponentTranslationsGlossaryItem | ComponentTranslationsLibraryContent | ComponentTranslationsLibraryItems | ComponentTranslationsPosts | ComponentTranslationsReinCostumes | ComponentTranslationsReinEmblems | ComponentTranslationsScanSet | ComponentTranslationsSimpleTitle | ComponentTranslationsTextSet | ComponentTranslationsTitle | ComponentTranslationsVideoSets | ComponentTranslationsWeaponStory | ComponentTranslationsWeaponStoryStory | ComponentTranslationsWeaponStoryType | ComponentTranslationsWebArchives | ComponentTranslationsWiki | ComponentTranslationsWikiPost | ComponentWikiSpecializationChronology | ComponentWikiSpecializationGlossaryItem | ComponentWikiSpecializationPost | ComponentWikiSpecializationWeapon | Content | ContentType | ContentsFolder | Currency | GamePlatform | GlossaryItem | GlossaryItemType | GroupSubtype | Language | LibraryItem | MerchItem | MetadataType | Post | RangedContent | Recorder | ReinCostume | ReinEmblem | Source | TextualSubtype | UploadFile | UploadFolder | Video | VideoChannel | VideoSubtype | WeaponStory | WeaponStoryGroup | WeaponStoryType | WebArchive | WebsiteInterface | WikiPage | WikiPagesTag
+
+union LibraryItemMetadataDynamicZone = ComponentMetadataAudio | ComponentMetadataBooks | ComponentMetadataGame | ComponentMetadataGroup | ComponentMetadataOther | ComponentMetadataVideo | Error
+
+union RangedContentRangeDynamicZone = ComponentRangeOther | ComponentRangePageRange | ComponentRangeTimeRange | Error
+
+type AudioSubtype {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type AudioSubtypeEntity {
+  attributes: AudioSubtype
+  id: ID
+}
+
+type AudioSubtypeEntityResponse {
+  data: AudioSubtypeEntity
+}
+
+type AudioSubtypeEntityResponseCollection {
+  data: [AudioSubtypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type Category {
+  createdAt: DateTime
+  series: ENUM_CATEGORY_SERIES
+  slug: String!
+  titles(filters: ComponentTranslationsCategoriesTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsCategoriesTitle]
+  updatedAt: DateTime
+}
+
+type CategoryEntity {
+  attributes: Category
+  id: ID
+}
+
+type CategoryEntityResponse {
+  data: CategoryEntity
+}
+
+type CategoryEntityResponseCollection {
+  data: [CategoryEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type CategoryRelationResponseCollection {
+  data: [CategoryEntity!]!
+}
+
+type Chronicle {
+  chapter: ChroniclesChapterEntityResponse
+  contents(filters: ContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentRelationResponseCollection
+  createdAt: DateTime
+  date_end: ComponentBasicsDatepicker!
+  date_start: ComponentBasicsDatepicker!
+  slug: String!
+  translations(filters: ComponentTranslationsChroniclesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsChronicles]
+  updatedAt: DateTime
+}
+
+type ChronicleEntity {
+  attributes: Chronicle
+  id: ID
+}
+
+type ChronicleEntityResponse {
+  data: ChronicleEntity
+}
+
+type ChronicleEntityResponseCollection {
+  data: [ChronicleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ChronicleRelationResponseCollection {
+  data: [ChronicleEntity!]!
+}
+
+type ChroniclesChapter {
+  chronicles(filters: ChronicleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronicleRelationResponseCollection
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type ChroniclesChapterEntity {
+  attributes: ChroniclesChapter
+  id: ID
+}
+
+type ChroniclesChapterEntityResponse {
+  data: ChroniclesChapterEntity
+}
+
+type ChroniclesChapterEntityResponseCollection {
+  data: [ChroniclesChapterEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ChronologyEra {
+  createdAt: DateTime
+  ending_year: Int!
+  slug: String!
+  starting_year: Int!
+  title(filters: ComponentTranslationsChronologyEraFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsChronologyEra]
+  updatedAt: DateTime
+}
+
+type ChronologyEraEntity {
+  attributes: ChronologyEra
+  id: ID
+}
+
+type ChronologyEraEntityResponse {
+  data: ChronologyEraEntity
+}
+
+type ChronologyEraEntityResponseCollection {
+  data: [ChronologyEraEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ChronologyItem {
+  createdAt: DateTime
+  day: Int
+  displayed_date: String
+  events(filters: ComponentCollectionsComponentEventFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentEvent]
+  month: Int
+  updatedAt: DateTime
+  wiki_pages(filters: WikiPageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WikiPageRelationResponseCollection
+  year: Int!
+}
+
+type ChronologyItemEntity {
+  attributes: ChronologyItem
+  id: ID
+}
+
+type ChronologyItemEntityResponse {
+  data: ChronologyItemEntity
+}
+
+type ChronologyItemEntityResponseCollection {
+  data: [ChronologyItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ChronologyItemRelationResponseCollection {
+  data: [ChronologyItemEntity!]!
+}
+
+type ComponentBasicsCredits {
+  cleaners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  footnotes: String
+  id: ID!
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  scanners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  subbers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  transcribers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  typesetters(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentBasicsDatepicker {
+  day: Int
+  id: ID!
+  month: Int
+  year: Int
+}
+
+type ComponentBasicsFileSize {
+  id: ID!
+  size: Float!
+  unit: ENUM_COMPONENTBASICSFILESIZE_UNIT!
+}
+
+type ComponentBasicsPrice {
+  amount: Float
+  currency: CurrencyEntityResponse
+  id: ID!
+}
+
+type ComponentBasicsSize {
+  height: Int
+  id: ID!
+  thickness: Int
+  width: Int
+}
+
+type ComponentBasicsUrl {
+  id: ID!
+  url: String
+}
+
+type ComponentCollectionsComponentAliases {
+  alias: String!
+  id: ID!
+}
+
+type ComponentCollectionsComponentBody {
+  authors(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  body: String!
+  id: ID!
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTCOLLECTIONSCOMPONENTBODY_STATUS!
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentCollectionsComponentDefinition {
+  definition: String!
+  id: ID!
+  source: SourceEntityResponse
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTCOLLECTIONSCOMPONENTDEFINITION_STATUS!
+}
+
+type ComponentCollectionsComponentEvent {
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsChronologyItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsChronologyItem]
+}
+
+type ComponentCollectionsComponentGlossaryDefinition {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsGlossaryDefinitionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsGlossaryDefinition]
+}
+
+type ComponentCollectionsComponentLibraryCover {
+  back: UploadFileEntityResponse
+  front: UploadFileEntityResponse
+  full: UploadFileEntityResponse
+  id: ID!
+  inside_back: UploadFileEntityResponse
+  inside_front: UploadFileEntityResponse
+  inside_full: UploadFileEntityResponse
+  spine: UploadFileEntityResponse
+}
+
+type ComponentCollectionsComponentLibraryDustJacket {
+  back: UploadFileEntityResponse
+  flap_back: UploadFileEntityResponse
+  flap_front: UploadFileEntityResponse
+  front: UploadFileEntityResponse
+  full: UploadFileEntityResponse
+  id: ID!
+  inside_full: UploadFileEntityResponse
+  spine: UploadFileEntityResponse
+}
+
+type ComponentCollectionsComponentLibraryImages {
+  cleaners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  cover: ComponentCollectionsComponentLibraryCover
+  dust_jacket: ComponentCollectionsComponentLibraryDustJacket
+  id: ID!
+  language: LanguageEntityResponse
+  obi_belt: ComponentCollectionsComponentLibraryObiBelt
+  scanners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTCOLLECTIONSCOMPONENTLIBRARYIMAGES_STATUS!
+  typesetters(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentCollectionsComponentLibraryObiBelt {
+  back: UploadFileEntityResponse
+  flap_back: UploadFileEntityResponse
+  flap_front: UploadFileEntityResponse
+  front: UploadFileEntityResponse
+  full: UploadFileEntityResponse
+  id: ID!
+  inside_full: UploadFileEntityResponse
+  spine: UploadFileEntityResponse
+}
+
+type ComponentCollectionsComponentTitles {
+  id: ID!
+  title: String!
+}
+
+type ComponentCollectionsComponentWeaponStory {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsWeaponStoryStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWeaponStoryStory]
+}
+
+type ComponentCollectionsComponentWikiDefinition {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  definition: String
+  id: ID!
+  source: SourceEntityResponse
+}
+
+type ComponentMetadataAudio {
+  id: ID!
+  subtype: AudioSubtypeEntityResponse
+  tracks(filters: ComponentSetsTrackSetFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSetsTrackSet]
+}
+
+type ComponentMetadataBooks {
+  binding_type: ENUM_COMPONENTMETADATABOOKS_BINDING_TYPE
+  id: ID!
+  languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  page_count: Int
+  page_order: ENUM_COMPONENTMETADATABOOKS_PAGE_ORDER!
+  subtype: TextualSubtypeEntityResponse
+}
+
+type ComponentMetadataGame {
+  audio_languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  demo: Boolean!
+  id: ID!
+  interface_languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  platform: GamePlatformEntityResponse
+  platforms(filters: GamePlatformFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GamePlatformRelationResponseCollection
+  sub_languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+}
+
+type ComponentMetadataGroup {
+  id: ID!
+  subitems_type: MetadataTypeEntityResponse
+  subtype: GroupSubtypeEntityResponse
+}
+
+type ComponentMetadataMerch {
+  id: ID!
+  merch_item: MerchItemEntityResponse
+}
+
+type ComponentMetadataOther {
+  id: ID!
+}
+
+type ComponentMetadataVideo {
+  id: ID!
+  subtype: VideoSubtypeEntityResponse
+}
+
+type ComponentPageBuilderGallery {
+  gallery(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  id: ID!
+}
+
+type ComponentPageBuilderGrid {
+  column_count: Int!
+  id: ID!
+}
+
+type ComponentPageBuilderTabs {
+  id: ID!
+}
+
+type ComponentRangeGameAspect {
+  id: ID!
+  note: String
+}
+
+type ComponentRangeOther {
+  id: ID!
+  note: String
+}
+
+type ComponentRangePageRange {
+  ending_page: Int!
+  id: ID!
+  starting_page: Int!
+}
+
+type ComponentRangeTimeRange {
+  ending_time: Time
+  id: ID!
+  starting_time: Time
+}
+
+type ComponentSetsAudioSet {
+  dubbers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  id: ID!
+  notes: String
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTSETSAUDIOSET_STATUS
+}
+
+type ComponentSetsScanSet {
+  cleaners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  id: ID!
+  language: LanguageEntityResponse
+  notes: String
+  pages(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  scanners(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTSETSSCANSET_STATUS!
+  typesetters(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentSetsTextSet {
+  id: ID!
+  notes: String
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTSETSTEXTSET_STATUS!
+  text: String
+  transcribers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentSetsTrackSet {
+  id: ID!
+  slug: String!
+  title: String!
+}
+
+type ComponentSetsVideoSet {
+  has_subfile: Boolean!
+  id: ID!
+  notes: String
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTSETSVIDEOSET_STATUS!
+  subbers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentSetsWikiSet {
+  body: String
+  id: ID!
+  language: LanguageEntityResponse
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTSETSWIKISET_STATUS!
+  summary: String
+  titles(filters: ComponentCollectionsComponentTitlesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentTitles]
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentSourceUrlSource {
+  credits: ComponentBasicsCredits!
+  id: ID!
+  note: String
+  title: String
+  url: String
+}
+
+type ComponentTranslationsAudioSets {
+  audiofile: UploadFileEntityResponse!
+  credits: ComponentBasicsCredits!
+  id: ID!
+  language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSAUDIOSETS_STATUS!
+}
+
+type ComponentTranslationsBio {
+  bio: String
+  id: ID!
+  language: LanguageEntityResponse
+}
+
+type ComponentTranslationsCategoriesTitle {
+  id: ID!
+  language: LanguageEntityResponse
+  short: String
+  title: String
+}
+
+type ComponentTranslationsChronicles {
+  body: ComponentCollectionsComponentBody
+  id: ID!
+  language: LanguageEntityResponse
+  summary: String
+  title: String!
+}
+
+type ComponentTranslationsChronologyEra {
+  description: String
+  id: ID!
+  language: LanguageEntityResponse
+  title: String!
+}
+
+type ComponentTranslationsChronologyItem {
+  description: String
+  id: ID!
+  language: LanguageEntityResponse
+  note: String
+  status: ENUM_COMPONENTTRANSLATIONSCHRONOLOGYITEM_STATUS!
+  title: String
+}
+
+type ComponentTranslationsGamePlatformsTranslations {
+  id: ID!
+  language: LanguageEntityResponse
+  short: String
+  title: String
+}
+
+type ComponentTranslationsGlossaryDefinition {
+  definition: String
+  id: ID!
+  language: LanguageEntityResponse
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSGLOSSARYDEFINITION_STATUS!
+  transcribers(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentTranslationsGlossaryItem {
+  id: ID!
+  language: LanguageEntityResponse
+  title: String
+}
+
+type ComponentTranslationsLibraryContent {
+  id: ID!
+  language: LanguageEntityResponse
+  title: String
+}
+
+type ComponentTranslationsLibraryItems {
+  description: String!
+  id: ID!
+  language: LanguageEntityResponse
+}
+
+type ComponentTranslationsPosts {
+  body: String
+  excerpt: String
+  id: ID!
+  language: LanguageEntityResponse
+  proofreaders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSPOSTS_STATUS!
+  thumbnail: UploadFileEntityResponse
+  title: String!
+  translators(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+}
+
+type ComponentTranslationsReinCostumes {
+  description: String!
+  id: ID!
+  language: LanguageEntityResponse
+  name: String!
+}
+
+type ComponentTranslationsReinEmblems {
+  description: String!
+  id: ID!
+  language: LanguageEntityResponse
+  name: String!
+}
+
+type ComponentTranslationsScanSet {
+  credits: ComponentBasicsCredits!
+  id: ID!
+  language: LanguageEntityResponse
+  pages(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection!
+  status: ENUM_COMPONENTTRANSLATIONSSCANSET_STATUS!
+}
+
+type ComponentTranslationsSimpleTitle {
+  id: ID!
+  language: LanguageEntityResponse
+  title: String!
+}
+
+type ComponentTranslationsTextSet {
+  credits: ComponentBasicsCredits!
+  id: ID!
+  language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSTEXTSET_STATUS!
+  text: String
+}
+
+type ComponentTranslationsTitle {
+  audio_set: ComponentSetsAudioSet
+  description: String
+  id: ID!
+  language: LanguageEntityResponse
+  pre_title: String
+  subtitle: String
+  text_set: ComponentSetsTextSet
+  title: String!
+  video_set: ComponentSetsVideoSet
+}
+
+type ComponentTranslationsVideoSets {
+  credits: ComponentBasicsCredits!
+  id: ID!
+  language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSVIDEOSETS_STATUS!
+  subfile: UploadFileEntityResponse
+  video_embed: String
+  video_url: String!
+}
+
+type ComponentTranslationsWeaponStory {
+  id: ID!
+  language: LanguageEntityResponse
+  name: String
+}
+
+type ComponentTranslationsWeaponStoryStory {
+  description: String
+  id: ID!
+  language: LanguageEntityResponse
+  level_1: String
+  level_2: String
+  level_3: String
+  level_4: String
+  status: ENUM_COMPONENTTRANSLATIONSWEAPONSTORYSTORY_STATUS!
+}
+
+type ComponentTranslationsWeaponStoryType {
+  id: ID!
+  language: LanguageEntityResponse
+  name: String
+}
+
+type ComponentTranslationsWebArchives {
+  description: String
+  id: ID!
+  language: LanguageEntityResponse
+  notes: String
+}
+
+type ComponentTranslationsWiki {
+  aliases(filters: ComponentCollectionsComponentAliasesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentAliases]
+  body: ComponentCollectionsComponentBody
+  id: ID!
+  language: LanguageEntityResponse
+  summary: String
+  title: String!
+}
+
+type ComponentTranslationsWikiPost {
+  body: String
+  id: ID!
+  language: LanguageEntityResponse
+  source_language: LanguageEntityResponse
+  status: ENUM_COMPONENTTRANSLATIONSWIKIPOST_STATUS!
+  summary: String
+}
+
+type ComponentWikiSpecializationChronology {
+  date: ComponentBasicsDatepicker!
+  displayed_date: String
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsChronologyItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsChronologyItem]
+}
+
+type ComponentWikiSpecializationGlossaryItem {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsGlossaryDefinitionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsGlossaryDefinition]
+}
+
+type ComponentWikiSpecializationPost {
+  authors(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  id: ID!
+  translations(filters: ComponentTranslationsWikiPostFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWikiPost]
+}
+
+type ComponentWikiSpecializationWeapon {
+  id: ID!
+  source: SourceEntityResponse
+  translations(filters: ComponentTranslationsWeaponStoryStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWeaponStoryStory]
+}
+
+type Content {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  chronicles(filters: ChronicleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronicleRelationResponseCollection
+  createdAt: DateTime
+  folder: ContentsFolderEntityResponse
+  next_contents(filters: ContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentRelationResponseCollection
+  previous_contents(filters: ContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentRelationResponseCollection
+  ranged_contents(filters: RangedContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RangedContentRelationResponseCollection
+  slug: String!
+  thumbnail: UploadFileEntityResponse
+  translations(filters: ComponentTranslationsTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsTitle]
+  type: ContentTypeEntityResponse
+  updatedAt: DateTime
+}
+
+type ContentEntity {
+  attributes: Content
+  id: ID
+}
+
+type ContentEntityResponse {
+  data: ContentEntity
+}
+
+type ContentEntityResponseCollection {
+  data: [ContentEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ContentRelationResponseCollection {
+  data: [ContentEntity!]!
+}
+
+type ContentType {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type ContentTypeEntity {
+  attributes: ContentType
+  id: ID
+}
+
+type ContentTypeEntityResponse {
+  data: ContentTypeEntity
+}
+
+type ContentTypeEntityResponseCollection {
+  data: [ContentTypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ContentsFolder {
+  contents(filters: ContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentRelationResponseCollection
+  createdAt: DateTime
+  parent_folder: ContentsFolderEntityResponse
+  slug: String!
+  subfolders(filters: ContentsFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentsFolderRelationResponseCollection
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]!
+  updatedAt: DateTime
+}
+
+type ContentsFolderEntity {
+  attributes: ContentsFolder
+  id: ID
+}
+
+type ContentsFolderEntityResponse {
+  data: ContentsFolderEntity
+}
+
+type ContentsFolderEntityResponseCollection {
+  data: [ContentsFolderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ContentsFolderRelationResponseCollection {
+  data: [ContentsFolderEntity!]!
+}
+
+type Currency {
+  code: String!
+  createdAt: DateTime
+  display_decimals: Boolean!
+  rate_to_usd: Float!
+  symbol: String!
+  updatedAt: DateTime
+}
+
+type CurrencyEntity {
+  attributes: Currency
+  id: ID
+}
+
+type CurrencyEntityResponse {
+  data: CurrencyEntity
+}
+
+type CurrencyEntityResponseCollection {
+  data: [CurrencyEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type Error {
+  code: String!
+  message: String
+}
+
+type GamePlatform {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsGamePlatformsTranslationsFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsGamePlatformsTranslations]
+  updatedAt: DateTime
+}
+
+type GamePlatformEntity {
+  attributes: GamePlatform
+  id: ID
+}
+
+type GamePlatformEntityResponse {
+  data: GamePlatformEntity
+}
+
+type GamePlatformEntityResponseCollection {
+  data: [GamePlatformEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type GamePlatformRelationResponseCollection {
+  data: [GamePlatformEntity!]!
+}
+
+type GlossaryItem {
+  createdAt: DateTime
+  definitions(filters: ComponentCollectionsComponentGlossaryDefinitionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentGlossaryDefinition]
+  slug: String!
+  title(filters: ComponentTranslationsGlossaryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsGlossaryItem]
+  type: GlossaryItemTypeEntityResponse
+  updatedAt: DateTime
+}
+
+type GlossaryItemEntity {
+  attributes: GlossaryItem
+  id: ID
+}
+
+type GlossaryItemEntityResponse {
+  data: GlossaryItemEntity
+}
+
+type GlossaryItemEntityResponseCollection {
+  data: [GlossaryItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type GlossaryItemType {
+  createdAt: DateTime
+  type: String!
+  updatedAt: DateTime
+}
+
+type GlossaryItemTypeEntity {
+  attributes: GlossaryItemType
+  id: ID
+}
+
+type GlossaryItemTypeEntityResponse {
+  data: GlossaryItemTypeEntity
+}
+
+type GlossaryItemTypeEntityResponseCollection {
+  data: [GlossaryItemTypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type GroupSubtype {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type GroupSubtypeEntity {
+  attributes: GroupSubtype
+  id: ID
+}
+
+type GroupSubtypeEntityResponse {
+  data: GroupSubtypeEntity
+}
+
+type GroupSubtypeEntityResponseCollection {
+  data: [GroupSubtypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type Language {
+  code: String!
+  createdAt: DateTime
+  localized_name: String!
+  name: String!
+  updatedAt: DateTime
+}
+
+type LanguageEntity {
+  attributes: Language
+  id: ID
+}
+
+type LanguageEntityResponse {
+  data: LanguageEntity
+}
+
+type LanguageEntityResponseCollection {
+  data: [LanguageEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type LanguageRelationResponseCollection {
+  data: [LanguageEntity!]!
+}
+
+type LibraryItem {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  contents(filters: RangedContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RangedContentRelationResponseCollection
+  createdAt: DateTime
+  descriptions(filters: ComponentTranslationsLibraryItemsFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsLibraryItems]
+  digital: Boolean!
+  download_available: Boolean!
+  gallery(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  images(filters: ComponentCollectionsComponentLibraryImagesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentLibraryImages]
+  metadata: [LibraryItemMetadataDynamicZone]
+  price: ComponentBasicsPrice
+  primary: Boolean!
+  release_date: ComponentBasicsDatepicker
+  root_item: Boolean!
+  size: ComponentBasicsSize
+  slug: String!
+  subitem_of(filters: LibraryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LibraryItemRelationResponseCollection
+  subitems(filters: LibraryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LibraryItemRelationResponseCollection
+  submerchs(filters: MerchItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MerchItemRelationResponseCollection
+  subtitle: String
+  thumbnail: UploadFileEntityResponse
+  title: String!
+  updatedAt: DateTime
+  urls(filters: ComponentBasicsUrlFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentBasicsUrl]
+}
+
+type LibraryItemEntity {
+  attributes: LibraryItem
+  id: ID
+}
+
+type LibraryItemEntityResponse {
+  data: LibraryItemEntity
+}
+
+type LibraryItemEntityResponseCollection {
+  data: [LibraryItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type LibraryItemRelationResponseCollection {
+  data: [LibraryItemEntity!]!
+}
+
+type MerchItem {
+  createdAt: DateTime
+  library_items(filters: LibraryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LibraryItemRelationResponseCollection
+  slug: String!
+  subtitle: String
+  thumbnail: UploadFileEntityResponse
+  title: String!
+  updatedAt: DateTime
+}
+
+type MerchItemEntity {
+  attributes: MerchItem
+  id: ID
+}
+
+type MerchItemEntityResponse {
+  data: MerchItemEntity
+}
+
+type MerchItemEntityResponseCollection {
+  data: [MerchItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type MerchItemRelationResponseCollection {
+  data: [MerchItemEntity!]!
+}
+
+type MetadataType {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type MetadataTypeEntity {
+  attributes: MetadataType
+  id: ID
+}
+
+type MetadataTypeEntityResponse {
+  data: MetadataTypeEntity
+}
+
+type MetadataTypeEntityResponseCollection {
+  data: [MetadataTypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type Mutation {
+  createAudioSubtype(data: AudioSubtypeInput!): AudioSubtypeEntityResponse
+  createCategory(data: CategoryInput!): CategoryEntityResponse
+  createChronicle(data: ChronicleInput!): ChronicleEntityResponse
+  createChroniclesChapter(data: ChroniclesChapterInput!): ChroniclesChapterEntityResponse
+  createChronologyEra(data: ChronologyEraInput!): ChronologyEraEntityResponse
+  createChronologyItem(data: ChronologyItemInput!): ChronologyItemEntityResponse
+  createContent(data: ContentInput!): ContentEntityResponse
+  createContentType(data: ContentTypeInput!): ContentTypeEntityResponse
+  createContentsFolder(data: ContentsFolderInput!): ContentsFolderEntityResponse
+  createCurrency(data: CurrencyInput!): CurrencyEntityResponse
+  createGamePlatform(data: GamePlatformInput!): GamePlatformEntityResponse
+  createGlossaryItem(data: GlossaryItemInput!): GlossaryItemEntityResponse
+  createGlossaryItemType(data: GlossaryItemTypeInput!): GlossaryItemTypeEntityResponse
+  createGroupSubtype(data: GroupSubtypeInput!): GroupSubtypeEntityResponse
+  createLanguage(data: LanguageInput!): LanguageEntityResponse
+  createLibraryItem(data: LibraryItemInput!): LibraryItemEntityResponse
+  createMerchItem(data: MerchItemInput!): MerchItemEntityResponse
+  createMetadataType(data: MetadataTypeInput!): MetadataTypeEntityResponse
+  createPost(data: PostInput!): PostEntityResponse
+  createRangedContent(data: RangedContentInput!): RangedContentEntityResponse
+  createRecorder(data: RecorderInput!): RecorderEntityResponse
+  createReinCostume(data: ReinCostumeInput!): ReinCostumeEntityResponse
+  createReinEmblem(data: ReinEmblemInput!): ReinEmblemEntityResponse
+  createSource(data: SourceInput!): SourceEntityResponse
+  createTextualSubtype(data: TextualSubtypeInput!): TextualSubtypeEntityResponse
+  createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
+  createUploadFolder(data: UploadFolderInput!): UploadFolderEntityResponse
+  createVideo(data: VideoInput!): VideoEntityResponse
+  createVideoChannel(data: VideoChannelInput!): VideoChannelEntityResponse
+  createVideoSubtype(data: VideoSubtypeInput!): VideoSubtypeEntityResponse
+  createWeaponStory(data: WeaponStoryInput!): WeaponStoryEntityResponse
+  createWeaponStoryGroup(data: WeaponStoryGroupInput!): WeaponStoryGroupEntityResponse
+  createWeaponStoryType(data: WeaponStoryTypeInput!): WeaponStoryTypeEntityResponse
+  createWebArchive(data: WebArchiveInput!): WebArchiveEntityResponse
+  createWebsiteInterface(data: WebsiteInterfaceInput!): WebsiteInterfaceEntityResponse
+  createWikiPage(data: WikiPageInput!): WikiPageEntityResponse
+  createWikiPagesTag(data: WikiPagesTagInput!): WikiPagesTagEntityResponse
+  deleteAudioSubtype(id: ID!): AudioSubtypeEntityResponse
+  deleteCategory(id: ID!): CategoryEntityResponse
+  deleteChronicle(id: ID!): ChronicleEntityResponse
+  deleteChroniclesChapter(id: ID!): ChroniclesChapterEntityResponse
+  deleteChronologyEra(id: ID!): ChronologyEraEntityResponse
+  deleteChronologyItem(id: ID!): ChronologyItemEntityResponse
+  deleteContent(id: ID!): ContentEntityResponse
+  deleteContentType(id: ID!): ContentTypeEntityResponse
+  deleteContentsFolder(id: ID!): ContentsFolderEntityResponse
+  deleteCurrency(id: ID!): CurrencyEntityResponse
+  deleteGamePlatform(id: ID!): GamePlatformEntityResponse
+  deleteGlossaryItem(id: ID!): GlossaryItemEntityResponse
+  deleteGlossaryItemType(id: ID!): GlossaryItemTypeEntityResponse
+  deleteGroupSubtype(id: ID!): GroupSubtypeEntityResponse
+  deleteLanguage(id: ID!): LanguageEntityResponse
+  deleteLibraryItem(id: ID!): LibraryItemEntityResponse
+  deleteMerchItem(id: ID!): MerchItemEntityResponse
+  deleteMetadataType(id: ID!): MetadataTypeEntityResponse
+  deletePost(id: ID!): PostEntityResponse
+  deleteRangedContent(id: ID!): RangedContentEntityResponse
+  deleteRecorder(id: ID!): RecorderEntityResponse
+  deleteReinCostume(id: ID!): ReinCostumeEntityResponse
+  deleteReinEmblem(id: ID!): ReinEmblemEntityResponse
+  deleteSource(id: ID!): SourceEntityResponse
+  deleteTextualSubtype(id: ID!): TextualSubtypeEntityResponse
+  deleteUploadFile(id: ID!): UploadFileEntityResponse
+  deleteUploadFolder(id: ID!): UploadFolderEntityResponse
+  deleteVideo(id: ID!): VideoEntityResponse
+  deleteVideoChannel(id: ID!): VideoChannelEntityResponse
+  deleteVideoSubtype(id: ID!): VideoSubtypeEntityResponse
+  deleteWeaponStory(id: ID!): WeaponStoryEntityResponse
+  deleteWeaponStoryGroup(id: ID!): WeaponStoryGroupEntityResponse
+  deleteWeaponStoryType(id: ID!): WeaponStoryTypeEntityResponse
+  deleteWebArchive(id: ID!): WebArchiveEntityResponse
+  deleteWebsiteInterface(id: ID!): WebsiteInterfaceEntityResponse
+  deleteWikiPage(id: ID!): WikiPageEntityResponse
+  deleteWikiPagesTag(id: ID!): WikiPagesTagEntityResponse
+  multipleUpload(field: String, files: [Upload]!, ref: String, refId: ID): [UploadFileEntityResponse]!
+  removeFile(id: ID!): UploadFileEntityResponse
+  updateAudioSubtype(data: AudioSubtypeInput!, id: ID!): AudioSubtypeEntityResponse
+  updateCategory(data: CategoryInput!, id: ID!): CategoryEntityResponse
+  updateChronicle(data: ChronicleInput!, id: ID!): ChronicleEntityResponse
+  updateChroniclesChapter(data: ChroniclesChapterInput!, id: ID!): ChroniclesChapterEntityResponse
+  updateChronologyEra(data: ChronologyEraInput!, id: ID!): ChronologyEraEntityResponse
+  updateChronologyItem(data: ChronologyItemInput!, id: ID!): ChronologyItemEntityResponse
+  updateContent(data: ContentInput!, id: ID!): ContentEntityResponse
+  updateContentType(data: ContentTypeInput!, id: ID!): ContentTypeEntityResponse
+  updateContentsFolder(data: ContentsFolderInput!, id: ID!): ContentsFolderEntityResponse
+  updateCurrency(data: CurrencyInput!, id: ID!): CurrencyEntityResponse
+  updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
+  updateGamePlatform(data: GamePlatformInput!, id: ID!): GamePlatformEntityResponse
+  updateGlossaryItem(data: GlossaryItemInput!, id: ID!): GlossaryItemEntityResponse
+  updateGlossaryItemType(data: GlossaryItemTypeInput!, id: ID!): GlossaryItemTypeEntityResponse
+  updateGroupSubtype(data: GroupSubtypeInput!, id: ID!): GroupSubtypeEntityResponse
+  updateLanguage(data: LanguageInput!, id: ID!): LanguageEntityResponse
+  updateLibraryItem(data: LibraryItemInput!, id: ID!): LibraryItemEntityResponse
+  updateMerchItem(data: MerchItemInput!, id: ID!): MerchItemEntityResponse
+  updateMetadataType(data: MetadataTypeInput!, id: ID!): MetadataTypeEntityResponse
+  updatePost(data: PostInput!, id: ID!): PostEntityResponse
+  updateRangedContent(data: RangedContentInput!, id: ID!): RangedContentEntityResponse
+  updateRecorder(data: RecorderInput!, id: ID!): RecorderEntityResponse
+  updateReinCostume(data: ReinCostumeInput!, id: ID!): ReinCostumeEntityResponse
+  updateReinEmblem(data: ReinEmblemInput!, id: ID!): ReinEmblemEntityResponse
+  updateSource(data: SourceInput!, id: ID!): SourceEntityResponse
+  updateTextualSubtype(data: TextualSubtypeInput!, id: ID!): TextualSubtypeEntityResponse
+  updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
+  updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
+  updateVideo(data: VideoInput!, id: ID!): VideoEntityResponse
+  updateVideoChannel(data: VideoChannelInput!, id: ID!): VideoChannelEntityResponse
+  updateVideoSubtype(data: VideoSubtypeInput!, id: ID!): VideoSubtypeEntityResponse
+  updateWeaponStory(data: WeaponStoryInput!, id: ID!): WeaponStoryEntityResponse
+  updateWeaponStoryGroup(data: WeaponStoryGroupInput!, id: ID!): WeaponStoryGroupEntityResponse
+  updateWeaponStoryType(data: WeaponStoryTypeInput!, id: ID!): WeaponStoryTypeEntityResponse
+  updateWebArchive(data: WebArchiveInput!, id: ID!): WebArchiveEntityResponse
+  updateWebsiteInterface(data: WebsiteInterfaceInput!, id: ID!): WebsiteInterfaceEntityResponse
+  updateWikiPage(data: WikiPageInput!, id: ID!): WikiPageEntityResponse
+  updateWikiPagesTag(data: WikiPagesTagInput!, id: ID!): WikiPagesTagEntityResponse
+  upload(field: String, file: Upload!, info: FileInfoInput, ref: String, refId: ID): UploadFileEntityResponse!
+}
+
+type Pagination {
+  page: Int!
+  pageCount: Int!
+  pageSize: Int!
+  total: Int!
+}
+
+type Post {
+  authors(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderRelationResponseCollection
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  createdAt: DateTime
+  date: ComponentBasicsDatepicker!
+  hidden: Boolean!
+  slug: String!
+  thumbnail: UploadFileEntityResponse
+  translations(filters: ComponentTranslationsPostsFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsPosts]
+  updatedAt: DateTime
+}
+
+type PostEntity {
+  attributes: Post
+  id: ID
+}
+
+type PostEntityResponse {
+  data: PostEntity
+}
+
+type PostEntityResponseCollection {
+  data: [PostEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type Query {
+  audioSubtype(id: ID): AudioSubtypeEntityResponse
+  audioSubtypes(filters: AudioSubtypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): AudioSubtypeEntityResponseCollection
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryEntityResponseCollection
+  category(id: ID): CategoryEntityResponse
+  chronicle(id: ID): ChronicleEntityResponse
+  chronicles(filters: ChronicleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronicleEntityResponseCollection
+  chroniclesChapter(id: ID): ChroniclesChapterEntityResponse
+  chroniclesChapters(filters: ChroniclesChapterFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChroniclesChapterEntityResponseCollection
+  chronologyEra(id: ID): ChronologyEraEntityResponse
+  chronologyEras(filters: ChronologyEraFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronologyEraEntityResponseCollection
+  chronologyItem(id: ID): ChronologyItemEntityResponse
+  chronologyItems(filters: ChronologyItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronologyItemEntityResponseCollection
+  content(id: ID): ContentEntityResponse
+  contentType(id: ID): ContentTypeEntityResponse
+  contentTypes(filters: ContentTypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentTypeEntityResponseCollection
+  contents(filters: ContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentEntityResponseCollection
+  contentsFolder(id: ID): ContentsFolderEntityResponse
+  contentsFolders(filters: ContentsFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentsFolderEntityResponseCollection
+  currencies(filters: CurrencyFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CurrencyEntityResponseCollection
+  currency(id: ID): CurrencyEntityResponse
+  gamePlatform(id: ID): GamePlatformEntityResponse
+  gamePlatforms(filters: GamePlatformFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GamePlatformEntityResponseCollection
+  glossaryItem(id: ID): GlossaryItemEntityResponse
+  glossaryItemType(id: ID): GlossaryItemTypeEntityResponse
+  glossaryItemTypes(filters: GlossaryItemTypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GlossaryItemTypeEntityResponseCollection
+  glossaryItems(filters: GlossaryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GlossaryItemEntityResponseCollection
+  groupSubtype(id: ID): GroupSubtypeEntityResponse
+  groupSubtypes(filters: GroupSubtypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GroupSubtypeEntityResponseCollection
+  language(id: ID): LanguageEntityResponse
+  languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageEntityResponseCollection
+  libraryItem(id: ID): LibraryItemEntityResponse
+  libraryItems(filters: LibraryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LibraryItemEntityResponseCollection
+  merchItem(id: ID): MerchItemEntityResponse
+  merchItems(filters: MerchItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MerchItemEntityResponseCollection
+  metadataType(id: ID): MetadataTypeEntityResponse
+  metadataTypes(filters: MetadataTypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MetadataTypeEntityResponseCollection
+  post(id: ID): PostEntityResponse
+  posts(filters: PostFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): PostEntityResponseCollection
+  rangedContent(id: ID): RangedContentEntityResponse
+  rangedContents(filters: RangedContentFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RangedContentEntityResponseCollection
+  recorder(id: ID): RecorderEntityResponse
+  recorders(filters: RecorderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RecorderEntityResponseCollection
+  reinCostume(id: ID): ReinCostumeEntityResponse
+  reinCostumes(filters: ReinCostumeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ReinCostumeEntityResponseCollection
+  reinEmblem(id: ID): ReinEmblemEntityResponse
+  reinEmblems(filters: ReinEmblemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ReinEmblemEntityResponseCollection
+  source(id: ID): SourceEntityResponse
+  sources(filters: SourceFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): SourceEntityResponseCollection
+  textualSubtype(id: ID): TextualSubtypeEntityResponse
+  textualSubtypes(filters: TextualSubtypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): TextualSubtypeEntityResponseCollection
+  uploadFile(id: ID): UploadFileEntityResponse
+  uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
+  uploadFolder(id: ID): UploadFolderEntityResponse
+  uploadFolders(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderEntityResponseCollection
+  video(id: ID): VideoEntityResponse
+  videoChannel(id: ID): VideoChannelEntityResponse
+  videoChannels(filters: VideoChannelFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): VideoChannelEntityResponseCollection
+  videoSubtype(id: ID): VideoSubtypeEntityResponse
+  videoSubtypes(filters: VideoSubtypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): VideoSubtypeEntityResponseCollection
+  videos(filters: VideoFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): VideoEntityResponseCollection
+  weaponStories(filters: WeaponStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WeaponStoryEntityResponseCollection
+  weaponStory(id: ID): WeaponStoryEntityResponse
+  weaponStoryGroup(id: ID): WeaponStoryGroupEntityResponse
+  weaponStoryGroups(filters: WeaponStoryGroupFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WeaponStoryGroupEntityResponseCollection
+  weaponStoryType(id: ID): WeaponStoryTypeEntityResponse
+  weaponStoryTypes(filters: WeaponStoryTypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WeaponStoryTypeEntityResponseCollection
+  webArchive(id: ID): WebArchiveEntityResponse
+  webArchives(filters: WebArchiveFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WebArchiveEntityResponseCollection
+  websiteInterface(id: ID): WebsiteInterfaceEntityResponse
+  websiteInterfaces(filters: WebsiteInterfaceFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WebsiteInterfaceEntityResponseCollection
+  wikiPage(id: ID): WikiPageEntityResponse
+  wikiPages(filters: WikiPageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WikiPageEntityResponseCollection
+  wikiPagesTag(id: ID): WikiPagesTagEntityResponse
+  wikiPagesTags(filters: WikiPagesTagFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WikiPagesTagEntityResponseCollection
+}
+
+type RangedContent {
+  content: ContentEntityResponse
+  createdAt: DateTime
+  library_item: LibraryItemEntityResponse
+  range: [RangedContentRangeDynamicZone]!
+  scan_set(filters: ComponentSetsScanSetFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSetsScanSet]
+  slug: String!
+  updatedAt: DateTime
+}
+
+type RangedContentEntity {
+  attributes: RangedContent
+  id: ID
+}
+
+type RangedContentEntityResponse {
+  data: RangedContentEntity
+}
+
+type RangedContentEntityResponseCollection {
+  data: [RangedContentEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type RangedContentRelationResponseCollection {
+  data: [RangedContentEntity!]!
+}
+
+type Recorder {
+  anonymize: Boolean!
+  anonymous_code: String!
+  avatar: UploadFileEntityResponse
+  bio(filters: ComponentTranslationsBioFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsBio]
+  createdAt: DateTime
+  languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  pronouns: String
+  updatedAt: DateTime
+  username: String!
+}
+
+type RecorderEntity {
+  attributes: Recorder
+  id: ID
+}
+
+type RecorderEntityResponse {
+  data: RecorderEntity
+}
+
+type RecorderEntityResponseCollection {
+  data: [RecorderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type RecorderRelationResponseCollection {
+  data: [RecorderEntity!]!
+}
+
+type ReinCostume {
+  createdAt: DateTime
+  emblem: ReinEmblemEntityResponse
+  slug: String!
+  sprite: UploadFileEntityResponse
+  thumbnail: UploadFileEntityResponse
+  translations(filters: ComponentTranslationsReinCostumesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsReinCostumes]
+  updatedAt: DateTime
+}
+
+type ReinCostumeEntity {
+  attributes: ReinCostume
+  id: ID
+}
+
+type ReinCostumeEntityResponse {
+  data: ReinCostumeEntity
+}
+
+type ReinCostumeEntityResponseCollection {
+  data: [ReinCostumeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ReinCostumeRelationResponseCollection {
+  data: [ReinCostumeEntity!]!
+}
+
+type ReinEmblem {
+  costumes(filters: ReinCostumeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ReinCostumeRelationResponseCollection
+  createdAt: DateTime
+  slug: String!
+  translations(filters: ComponentTranslationsReinEmblemsFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsReinEmblems]
+  updatedAt: DateTime
+}
+
+type ReinEmblemEntity {
+  attributes: ReinEmblem
+  id: ID
+}
+
+type ReinEmblemEntityResponse {
+  data: ReinEmblemEntity
+}
+
+type ReinEmblemEntityResponseCollection {
+  data: [ReinEmblemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type ResponseCollectionMeta {
+  pagination: Pagination!
+}
+
+type Source {
+  content: ContentEntityResponse
+  createdAt: DateTime
+  name: String!
+  ranged_content: RangedContentEntityResponse
+  updatedAt: DateTime
+}
+
+type SourceEntity {
+  attributes: Source
+  id: ID
+}
+
+type SourceEntityResponse {
+  data: SourceEntity
+}
+
+type SourceEntityResponseCollection {
+  data: [SourceEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type TextualSubtype {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type TextualSubtypeEntity {
+  attributes: TextualSubtype
+  id: ID
+}
+
+type TextualSubtypeEntityResponse {
+  data: TextualSubtypeEntity
+}
+
+type TextualSubtypeEntityResponseCollection {
+  data: [TextualSubtypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type UploadFile {
+  alternativeText: String
+  caption: String
+  createdAt: DateTime
+  ext: String
+  formats: JSON
+  hash: String!
+  height: Int
+  mime: String!
+  name: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [GenericMorph]
+  size: Float!
+  updatedAt: DateTime
+  url: String!
+  width: Int
+}
+
+type UploadFileEntity {
+  attributes: UploadFile
+  id: ID
+}
+
+type UploadFileEntityResponse {
+  data: UploadFileEntity
+}
+
+type UploadFileEntityResponseCollection {
+  data: [UploadFileEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type UploadFileRelationResponseCollection {
+  data: [UploadFileEntity!]!
+}
+
+type UploadFolder {
+  children(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderRelationResponseCollection
+  createdAt: DateTime
+  files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  name: String!
+  parent: UploadFolderEntityResponse
+  path: String!
+  pathId: Int!
+  updatedAt: DateTime
+}
+
+type UploadFolderEntity {
+  attributes: UploadFolder
+  id: ID
+}
+
+type UploadFolderEntityResponse {
+  data: UploadFolderEntity
+}
+
+type UploadFolderEntityResponseCollection {
+  data: [UploadFolderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type UploadFolderRelationResponseCollection {
+  data: [UploadFolderEntity!]!
+}
+
+type Video {
+  audio_languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  channel: VideoChannelEntityResponse
+  createdAt: DateTime
+  description: String!
+  duration: Int!
+  gone: Boolean!
+  height: Int!
+  likes: Int!
+  live_chat: Boolean!
+  published_date: ComponentBasicsDatepicker!
+  source: ENUM_VIDEO_SOURCE
+  sub_languages(filters: LanguageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): LanguageRelationResponseCollection
+  title: String!
+  uid: String!
+  updatedAt: DateTime
+  views: Int!
+  width: Int!
+}
+
+type VideoChannel {
+  createdAt: DateTime
+  subscribers: Int!
+  title: String!
+  uid: String!
+  updatedAt: DateTime
+  videos(filters: VideoFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): VideoRelationResponseCollection
+}
+
+type VideoChannelEntity {
+  attributes: VideoChannel
+  id: ID
+}
+
+type VideoChannelEntityResponse {
+  data: VideoChannelEntity
+}
+
+type VideoChannelEntityResponseCollection {
+  data: [VideoChannelEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type VideoEntity {
+  attributes: Video
+  id: ID
+}
+
+type VideoEntityResponse {
+  data: VideoEntity
+}
+
+type VideoEntityResponseCollection {
+  data: [VideoEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type VideoRelationResponseCollection {
+  data: [VideoEntity!]!
+}
+
+type VideoSubtype {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type VideoSubtypeEntity {
+  attributes: VideoSubtype
+  id: ID
+}
+
+type VideoSubtypeEntityResponse {
+  data: VideoSubtypeEntity
+}
+
+type VideoSubtypeEntityResponseCollection {
+  data: [VideoSubtypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WeaponStory {
+  createdAt: DateTime
+  name(filters: ComponentTranslationsWeaponStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWeaponStory]
+  slug: String!
+  stories(filters: ComponentCollectionsComponentWeaponStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCollectionsComponentWeaponStory]
+  thumbnail: UploadFileEntityResponse
+  type: WeaponStoryTypeEntityResponse
+  updatedAt: DateTime
+  weapon_group: WeaponStoryGroupEntityResponse
+  wiki_page: WikiPageEntityResponse
+}
+
+type WeaponStoryEntity {
+  attributes: WeaponStory
+  id: ID
+}
+
+type WeaponStoryEntityResponse {
+  data: WeaponStoryEntity
+}
+
+type WeaponStoryEntityResponseCollection {
+  data: [WeaponStoryEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WeaponStoryGroup {
+  createdAt: DateTime
+  slug: String!
+  subgroup_of: WeaponStoryGroupEntityResponse
+  subgroups(filters: WeaponStoryGroupFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WeaponStoryGroupRelationResponseCollection
+  updatedAt: DateTime
+  weapons(filters: WeaponStoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WeaponStoryRelationResponseCollection
+}
+
+type WeaponStoryGroupEntity {
+  attributes: WeaponStoryGroup
+  id: ID
+}
+
+type WeaponStoryGroupEntityResponse {
+  data: WeaponStoryGroupEntity
+}
+
+type WeaponStoryGroupEntityResponseCollection {
+  data: [WeaponStoryGroupEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WeaponStoryGroupRelationResponseCollection {
+  data: [WeaponStoryGroupEntity!]!
+}
+
+type WeaponStoryRelationResponseCollection {
+  data: [WeaponStoryEntity!]!
+}
+
+type WeaponStoryType {
+  createdAt: DateTime
+  slug: String!
+  translations(filters: ComponentTranslationsWeaponStoryTypeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWeaponStoryType]
+  updatedAt: DateTime
+}
+
+type WeaponStoryTypeEntity {
+  attributes: WeaponStoryType
+  id: ID
+}
+
+type WeaponStoryTypeEntityResponse {
+  data: WeaponStoryTypeEntity
+}
+
+type WeaponStoryTypeEntityResponseCollection {
+  data: [WeaponStoryTypeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WebArchive {
+  author: String
+  createdAt: DateTime
+  date: ComponentBasicsDatepicker!
+  descriptions(filters: ComponentTranslationsWebArchivesFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWebArchives]
+  format: ENUM_WEBARCHIVE_FORMAT!
+  num_pages: Int
+  size: ComponentBasicsFileSize!
+  source_url: String!
+  still_online: Boolean!
+  type: ENUM_WEBARCHIVE_TYPE!
+  updatedAt: DateTime
+}
+
+type WebArchiveEntity {
+  attributes: WebArchive
+  id: ID
+}
+
+type WebArchiveEntityResponse {
+  data: WebArchiveEntity
+}
+
+type WebArchiveEntityResponseCollection {
+  data: [WebArchiveEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WebsiteInterface {
+  about_us: String
+  about_us_description: String
+  accords_handbook: String
+  all: String
+  always_show_info: String
+  anchor_link_copied: String
+  archives: String
+  archives_description: String
+  audio: String
+  author: String
+  auto: String
+  available_at: String
+  available_at_x: String
+  back_matter: String
+  binding: String
+  book_fold: String
+  calculated: String
+  category: String
+  channel: String
+  chronicles: String
+  chronicles_description: String
+  chronicles_short_description: String
+  chronology: String
+  cleaners: String
+  contact_us: String
+  content: String
+  content_is_not_available: String
+  contents: String
+  contents_description: String
+  contents_short_description: String
+  copy_anchor_link: String
+  copyright_notice: String
+  cover: String
+  createdAt: DateTime
+  currency: String
+  dark: String
+  dark_mode_extension_warning: String
+  default_description: String
+  definition_x: String
+  description: String
+  details: String
+  done: String
+  double_page_view: String
+  download_archive: String
+  draft: String
+  dubber: String
+  email: String
+  email_gdpr_notice: String
+  empty_folder_message: String
+  folders: String
+  followup_content: String
+  font: String
+  font_size: String
+  front_matter: String
+  gallery: String
+  game: String
+  group: String
+  group_by: String
+  hardcover: String
+  have_it: String
+  height: String
+  incomplete: String
+  item: String
+  item_not_available: String
+  language: String
+  least_popular: String
+  left_to_right: String
+  legality: String
+  level_x: String
+  library: String
+  library_description: String
+  library_short_description: String
+  licensing_notice: String
+  light: String
+  lighting: String
+  listen_content: String
+  longest: String
+  message: String
+  most_popular: String
+  name: String
+  newest: String
+  news: String
+  news_description: String
+  night_reader: String
+  no_results_message: String
+  no_source_warning: String
+  notes: String
+  oldest: String
+  only_display_items_i_have: String
+  only_display_items_i_want: String
+  only_display_unmarked_items: String
+  only_unavailable_videos: String
+  open_content: String
+  open_search: String
+  open_settings: String
+  order_by: String
+  other: String
+  page: String
+  page_not_found: String
+  page_order: String
+  paper_texture: String
+  paperback: String
+  performance_mode: String
+  performance_mode_tooltip: String
+  player_name: String
+  player_name_tooltip: String
+  previous_content: String
+  price: String
+  primary_language: String
+  pronouns: String
+  proofreader: String
+  quality: String
+  read_content: String
+  reading_layout: String
+  release_date: String
+  release_year: String
+  reset_all_filters: String
+  reset_all_options: String
+  response_email_success: String
+  response_invalid_code: String
+  response_invalid_email: String
+  return_to_x: String
+  review: String
+  right_to_left: String
+  scan: String
+  scanlation: String
+  scanners: String
+  search: String
+  search_placeholder: String
+  secondary_language: String
+  select_option_sidebar: String
+  send: String
+  settings: String
+  shadow: String
+  sharing_policy: String
+  shortest: String
+  show_primary_items: String
+  show_secondary_items: String
+  show_subitems: String
+  showing_x_out_of_y_results: String
+  side_pages: String
+  single_page_view: String
+  size: String
+  source: String
+  source_language: String
+  special_pages: String
+  status: String
+  status_done: String
+  status_draft: String
+  status_incomplete: String
+  status_review: String
+  story_x: String
+  subber: String
+  subitem: String
+  subitem_of_x: String
+  subscribers: String
+  summary: String
+  switch_to_folder_view: String
+  switch_to_grid_view: String
+  table_of_contents: String
+  tags: String
+  textual: String
+  theme: String
+  thickness: String
+  transcriber: String
+  transcript_notice: String
+  translation_notice: String
+  translator: String
+  type: String
+  type_information: String
+  typesetters: String
+  ui_language: LanguageEntityResponse
+  updatedAt: DateTime
+  variant: String
+  variant_of_x: String
+  video: String
+  videos: String
+  view_on: String
+  view_on_x: String
+  view_scans: String
+  want_it: String
+  watch_content: String
+  weapon: String
+  weapons_description: String
+  width: String
+  wiki: String
+  wiki_description: String
+  wiki_short_description: String
+  x_results: String
+}
+
+type WebsiteInterfaceEntity {
+  attributes: WebsiteInterface
+  id: ID
+}
+
+type WebsiteInterfaceEntityResponse {
+  data: WebsiteInterfaceEntity
+}
+
+type WebsiteInterfaceEntityResponseCollection {
+  data: [WebsiteInterfaceEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WikiPage {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): CategoryRelationResponseCollection
+  chronology_items(filters: ChronologyItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ChronologyItemRelationResponseCollection
+  createdAt: DateTime
+  definitions(filters: ComponentWikiSpecializationGlossaryItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentWikiSpecializationGlossaryItem]
+  slug: String!
+  tags(filters: WikiPagesTagFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): WikiPagesTagRelationResponseCollection
+  thumbnail: UploadFileEntityResponse
+  translations(filters: ComponentTranslationsWikiFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsWiki]
+  updatedAt: DateTime
+  weapon: WeaponStoryEntityResponse
+}
+
+type WikiPageEntity {
+  attributes: WikiPage
+  id: ID
+}
+
+type WikiPageEntityResponse {
+  data: WikiPageEntity
+}
+
+type WikiPageEntityResponseCollection {
+  data: [WikiPageEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WikiPageRelationResponseCollection {
+  data: [WikiPageEntity!]!
+}
+
+type WikiPagesTag {
+  createdAt: DateTime
+  slug: String!
+  titles(filters: ComponentTranslationsSimpleTitleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentTranslationsSimpleTitle]
+  updatedAt: DateTime
+}
+
+type WikiPagesTagEntity {
+  attributes: WikiPagesTag
+  id: ID
+}
+
+type WikiPagesTagEntityResponse {
+  data: WikiPagesTagEntity
+}
+
+type WikiPagesTagEntityResponseCollection {
+  data: [WikiPagesTagEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+type WikiPagesTagRelationResponseCollection {
+  data: [WikiPagesTagEntity!]!
+}
+
+enum ENUM_CATEGORY_SERIES {
+  Drakengard
+  NieR
+  YoRHa
+}
+
+enum ENUM_COMPONENTBASICSFILESIZE_UNIT {
+  gb
+  kb
+  mb
+}
+
+enum ENUM_COMPONENTCOLLECTIONSCOMPONENTBODY_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTCOLLECTIONSCOMPONENTDEFINITION_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTCOLLECTIONSCOMPONENTLIBRARYIMAGES_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTMETADATABOOKS_BINDING_TYPE {
+  Hardcover
+  Paperback
+}
+
+enum ENUM_COMPONENTMETADATABOOKS_PAGE_ORDER {
+  Left_to_Right
+  Right_to_Left
+}
+
+enum ENUM_COMPONENTSETSAUDIOSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTSETSSCANSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTSETSTEXTSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTSETSVIDEOSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTSETSWIKISET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSAUDIOSETS_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSCHRONOLOGYITEM_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSGLOSSARYDEFINITION_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSPOSTS_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSSCANSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSTEXTSET_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSVIDEOSETS_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSWEAPONSTORYSTORY_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_COMPONENTTRANSLATIONSWIKIPOST_STATUS {
+  Done
+  Draft
+  Incomplete
+  Review
+}
+
+enum ENUM_VIDEO_SOURCE {
+  NicoNico
+  Tumblr
+  YouTube
+}
+
+enum ENUM_WEBARCHIVE_FORMAT {
+  wacz
+  zip
+}
+
+enum ENUM_WEBARCHIVE_TYPE {
+  online_doc
+  webpage
+  website
+}
+
+"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar DateTime
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+scalar LibraryItemMetadataDynamicZoneInput
+
+scalar RangedContentRangeDynamicZoneInput
+
+"A time string with format HH:mm:ss.SSS"
+scalar Time
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
+
+input AudioSubtypeFiltersInput {
+  and: [AudioSubtypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: AudioSubtypeFiltersInput
+  or: [AudioSubtypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input AudioSubtypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input BooleanFilterInput {
+  and: [Boolean]
+  between: [Boolean]
+  contains: Boolean
+  containsi: Boolean
+  endsWith: Boolean
+  eq: Boolean
+  eqi: Boolean
+  gt: Boolean
+  gte: Boolean
+  in: [Boolean]
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  not: BooleanFilterInput
+  notContains: Boolean
+  notContainsi: Boolean
+  notIn: [Boolean]
+  notNull: Boolean
+  null: Boolean
+  or: [Boolean]
+  startsWith: Boolean
+}
+
+input CategoryFiltersInput {
+  and: [CategoryFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: CategoryFiltersInput
+  or: [CategoryFiltersInput]
+  series: StringFilterInput
+  slug: StringFilterInput
+  titles: ComponentTranslationsCategoriesTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input CategoryInput {
+  series: ENUM_CATEGORY_SERIES
+  slug: String
+  titles: [ComponentTranslationsCategoriesTitleInput]
+}
+
+input ChronicleFiltersInput {
+  and: [ChronicleFiltersInput]
+  chapter: ChroniclesChapterFiltersInput
+  contents: ContentFiltersInput
+  createdAt: DateTimeFilterInput
+  date_end: ComponentBasicsDatepickerFiltersInput
+  date_start: ComponentBasicsDatepickerFiltersInput
+  id: IDFilterInput
+  not: ChronicleFiltersInput
+  or: [ChronicleFiltersInput]
+  slug: StringFilterInput
+  translations: ComponentTranslationsChroniclesFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ChronicleInput {
+  chapter: ID
+  contents: [ID]
+  date_end: ComponentBasicsDatepickerInput
+  date_start: ComponentBasicsDatepickerInput
+  slug: String
+  translations: [ComponentTranslationsChroniclesInput]
+}
+
+input ChroniclesChapterFiltersInput {
+  and: [ChroniclesChapterFiltersInput]
+  chronicles: ChronicleFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: ChroniclesChapterFiltersInput
+  or: [ChroniclesChapterFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ChroniclesChapterInput {
+  chronicles: [ID]
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input ChronologyEraFiltersInput {
+  and: [ChronologyEraFiltersInput]
+  createdAt: DateTimeFilterInput
+  ending_year: IntFilterInput
+  id: IDFilterInput
+  not: ChronologyEraFiltersInput
+  or: [ChronologyEraFiltersInput]
+  slug: StringFilterInput
+  starting_year: IntFilterInput
+  title: ComponentTranslationsChronologyEraFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ChronologyEraInput {
+  ending_year: Int
+  slug: String
+  starting_year: Int
+  title: [ComponentTranslationsChronologyEraInput]
+}
+
+input ChronologyItemFiltersInput {
+  and: [ChronologyItemFiltersInput]
+  createdAt: DateTimeFilterInput
+  day: IntFilterInput
+  displayed_date: StringFilterInput
+  events: ComponentCollectionsComponentEventFiltersInput
+  id: IDFilterInput
+  month: IntFilterInput
+  not: ChronologyItemFiltersInput
+  or: [ChronologyItemFiltersInput]
+  updatedAt: DateTimeFilterInput
+  wiki_pages: WikiPageFiltersInput
+  year: IntFilterInput
+}
+
+input ChronologyItemInput {
+  day: Int
+  displayed_date: String
+  events: [ComponentCollectionsComponentEventInput]
+  month: Int
+  wiki_pages: [ID]
+  year: Int
+}
+
+input ComponentBasicsDatepickerFiltersInput {
+  and: [ComponentBasicsDatepickerFiltersInput]
+  day: IntFilterInput
+  month: IntFilterInput
+  not: ComponentBasicsDatepickerFiltersInput
+  or: [ComponentBasicsDatepickerFiltersInput]
+  year: IntFilterInput
+}
+
+input ComponentBasicsDatepickerInput {
+  day: Int
+  id: ID
+  month: Int
+  year: Int
+}
+
+input ComponentBasicsFileSizeFiltersInput {
+  and: [ComponentBasicsFileSizeFiltersInput]
+  not: ComponentBasicsFileSizeFiltersInput
+  or: [ComponentBasicsFileSizeFiltersInput]
+  size: FloatFilterInput
+  unit: StringFilterInput
+}
+
+input ComponentBasicsFileSizeInput {
+  id: ID
+  size: Float
+  unit: ENUM_COMPONENTBASICSFILESIZE_UNIT
+}
+
+input ComponentBasicsPriceFiltersInput {
+  amount: FloatFilterInput
+  and: [ComponentBasicsPriceFiltersInput]
+  currency: CurrencyFiltersInput
+  not: ComponentBasicsPriceFiltersInput
+  or: [ComponentBasicsPriceFiltersInput]
+}
+
+input ComponentBasicsPriceInput {
+  amount: Float
+  currency: ID
+  id: ID
+}
+
+input ComponentBasicsSizeFiltersInput {
+  and: [ComponentBasicsSizeFiltersInput]
+  height: IntFilterInput
+  not: ComponentBasicsSizeFiltersInput
+  or: [ComponentBasicsSizeFiltersInput]
+  thickness: IntFilterInput
+  width: IntFilterInput
+}
+
+input ComponentBasicsSizeInput {
+  height: Int
+  id: ID
+  thickness: Int
+  width: Int
+}
+
+input ComponentBasicsUrlFiltersInput {
+  and: [ComponentBasicsUrlFiltersInput]
+  not: ComponentBasicsUrlFiltersInput
+  or: [ComponentBasicsUrlFiltersInput]
+  url: StringFilterInput
+}
+
+input ComponentBasicsUrlInput {
+  id: ID
+  url: String
+}
+
+input ComponentCollectionsComponentAliasesFiltersInput {
+  alias: StringFilterInput
+  and: [ComponentCollectionsComponentAliasesFiltersInput]
+  not: ComponentCollectionsComponentAliasesFiltersInput
+  or: [ComponentCollectionsComponentAliasesFiltersInput]
+}
+
+input ComponentCollectionsComponentAliasesInput {
+  alias: String
+  id: ID
+}
+
+input ComponentCollectionsComponentBodyFiltersInput {
+  and: [ComponentCollectionsComponentBodyFiltersInput]
+  authors: RecorderFiltersInput
+  body: StringFilterInput
+  not: ComponentCollectionsComponentBodyFiltersInput
+  or: [ComponentCollectionsComponentBodyFiltersInput]
+  proofreaders: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  translators: RecorderFiltersInput
+}
+
+input ComponentCollectionsComponentBodyInput {
+  authors: [ID]
+  body: String
+  id: ID
+  proofreaders: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTCOLLECTIONSCOMPONENTBODY_STATUS
+  translators: [ID]
+}
+
+input ComponentCollectionsComponentEventFiltersInput {
+  and: [ComponentCollectionsComponentEventFiltersInput]
+  not: ComponentCollectionsComponentEventFiltersInput
+  or: [ComponentCollectionsComponentEventFiltersInput]
+  source: SourceFiltersInput
+  translations: ComponentTranslationsChronologyItemFiltersInput
+}
+
+input ComponentCollectionsComponentEventInput {
+  id: ID
+  source: ID
+  translations: [ComponentTranslationsChronologyItemInput]
+}
+
+input ComponentCollectionsComponentGlossaryDefinitionFiltersInput {
+  and: [ComponentCollectionsComponentGlossaryDefinitionFiltersInput]
+  categories: CategoryFiltersInput
+  not: ComponentCollectionsComponentGlossaryDefinitionFiltersInput
+  or: [ComponentCollectionsComponentGlossaryDefinitionFiltersInput]
+  source: SourceFiltersInput
+  translations: ComponentTranslationsGlossaryDefinitionFiltersInput
+}
+
+input ComponentCollectionsComponentGlossaryDefinitionInput {
+  categories: [ID]
+  id: ID
+  source: ID
+  translations: [ComponentTranslationsGlossaryDefinitionInput]
+}
+
+input ComponentCollectionsComponentLibraryCoverFiltersInput {
+  and: [ComponentCollectionsComponentLibraryCoverFiltersInput]
+  not: ComponentCollectionsComponentLibraryCoverFiltersInput
+  or: [ComponentCollectionsComponentLibraryCoverFiltersInput]
+}
+
+input ComponentCollectionsComponentLibraryCoverInput {
+  back: ID
+  front: ID
+  full: ID
+  id: ID
+  inside_back: ID
+  inside_front: ID
+  inside_full: ID
+  spine: ID
+}
+
+input ComponentCollectionsComponentLibraryDustJacketFiltersInput {
+  and: [ComponentCollectionsComponentLibraryDustJacketFiltersInput]
+  not: ComponentCollectionsComponentLibraryDustJacketFiltersInput
+  or: [ComponentCollectionsComponentLibraryDustJacketFiltersInput]
+}
+
+input ComponentCollectionsComponentLibraryDustJacketInput {
+  back: ID
+  flap_back: ID
+  flap_front: ID
+  front: ID
+  full: ID
+  id: ID
+  inside_full: ID
+  spine: ID
+}
+
+input ComponentCollectionsComponentLibraryImagesFiltersInput {
+  and: [ComponentCollectionsComponentLibraryImagesFiltersInput]
+  cleaners: RecorderFiltersInput
+  cover: ComponentCollectionsComponentLibraryCoverFiltersInput
+  dust_jacket: ComponentCollectionsComponentLibraryDustJacketFiltersInput
+  language: LanguageFiltersInput
+  not: ComponentCollectionsComponentLibraryImagesFiltersInput
+  obi_belt: ComponentCollectionsComponentLibraryObiBeltFiltersInput
+  or: [ComponentCollectionsComponentLibraryImagesFiltersInput]
+  scanners: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  typesetters: RecorderFiltersInput
+}
+
+input ComponentCollectionsComponentLibraryImagesInput {
+  cleaners: [ID]
+  cover: ComponentCollectionsComponentLibraryCoverInput
+  dust_jacket: ComponentCollectionsComponentLibraryDustJacketInput
+  id: ID
+  language: ID
+  obi_belt: ComponentCollectionsComponentLibraryObiBeltInput
+  scanners: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTCOLLECTIONSCOMPONENTLIBRARYIMAGES_STATUS
+  typesetters: [ID]
+}
+
+input ComponentCollectionsComponentLibraryObiBeltFiltersInput {
+  and: [ComponentCollectionsComponentLibraryObiBeltFiltersInput]
+  not: ComponentCollectionsComponentLibraryObiBeltFiltersInput
+  or: [ComponentCollectionsComponentLibraryObiBeltFiltersInput]
+}
+
+input ComponentCollectionsComponentLibraryObiBeltInput {
+  back: ID
+  flap_back: ID
+  flap_front: ID
+  front: ID
+  full: ID
+  id: ID
+  inside_full: ID
+  spine: ID
+}
+
+input ComponentCollectionsComponentTitlesFiltersInput {
+  and: [ComponentCollectionsComponentTitlesFiltersInput]
+  not: ComponentCollectionsComponentTitlesFiltersInput
+  or: [ComponentCollectionsComponentTitlesFiltersInput]
+  title: StringFilterInput
+}
+
+input ComponentCollectionsComponentWeaponStoryFiltersInput {
+  and: [ComponentCollectionsComponentWeaponStoryFiltersInput]
+  categories: CategoryFiltersInput
+  not: ComponentCollectionsComponentWeaponStoryFiltersInput
+  or: [ComponentCollectionsComponentWeaponStoryFiltersInput]
+  source: SourceFiltersInput
+  translations: ComponentTranslationsWeaponStoryStoryFiltersInput
+}
+
+input ComponentCollectionsComponentWeaponStoryInput {
+  categories: [ID]
+  id: ID
+  source: ID
+  translations: [ComponentTranslationsWeaponStoryStoryInput]
+}
+
+input ComponentSetsAudioSetFiltersInput {
+  and: [ComponentSetsAudioSetFiltersInput]
+  dubbers: RecorderFiltersInput
+  not: ComponentSetsAudioSetFiltersInput
+  notes: StringFilterInput
+  or: [ComponentSetsAudioSetFiltersInput]
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+}
+
+input ComponentSetsAudioSetInput {
+  dubbers: [ID]
+  id: ID
+  notes: String
+  source_language: ID
+  status: ENUM_COMPONENTSETSAUDIOSET_STATUS
+}
+
+input ComponentSetsScanSetFiltersInput {
+  and: [ComponentSetsScanSetFiltersInput]
+  cleaners: RecorderFiltersInput
+  language: LanguageFiltersInput
+  not: ComponentSetsScanSetFiltersInput
+  notes: StringFilterInput
+  or: [ComponentSetsScanSetFiltersInput]
+  scanners: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  typesetters: RecorderFiltersInput
+}
+
+input ComponentSetsScanSetInput {
+  cleaners: [ID]
+  id: ID
+  language: ID
+  notes: String
+  pages: [ID]
+  scanners: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTSETSSCANSET_STATUS
+  typesetters: [ID]
+}
+
+input ComponentSetsTextSetFiltersInput {
+  and: [ComponentSetsTextSetFiltersInput]
+  not: ComponentSetsTextSetFiltersInput
+  notes: StringFilterInput
+  or: [ComponentSetsTextSetFiltersInput]
+  proofreaders: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  text: StringFilterInput
+  transcribers: RecorderFiltersInput
+  translators: RecorderFiltersInput
+}
+
+input ComponentSetsTextSetInput {
+  id: ID
+  notes: String
+  proofreaders: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTSETSTEXTSET_STATUS
+  text: String
+  transcribers: [ID]
+  translators: [ID]
+}
+
+input ComponentSetsTrackSetFiltersInput {
+  and: [ComponentSetsTrackSetFiltersInput]
+  not: ComponentSetsTrackSetFiltersInput
+  or: [ComponentSetsTrackSetFiltersInput]
+  slug: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentSetsVideoSetFiltersInput {
+  and: [ComponentSetsVideoSetFiltersInput]
+  has_subfile: BooleanFilterInput
+  not: ComponentSetsVideoSetFiltersInput
+  notes: StringFilterInput
+  or: [ComponentSetsVideoSetFiltersInput]
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  subbers: RecorderFiltersInput
+}
+
+input ComponentSetsVideoSetInput {
+  has_subfile: Boolean
+  id: ID
+  notes: String
+  source_language: ID
+  status: ENUM_COMPONENTSETSVIDEOSET_STATUS
+  subbers: [ID]
+}
+
+input ComponentTranslationsBioFiltersInput {
+  and: [ComponentTranslationsBioFiltersInput]
+  bio: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsBioFiltersInput
+  or: [ComponentTranslationsBioFiltersInput]
+}
+
+input ComponentTranslationsBioInput {
+  bio: String
+  id: ID
+  language: ID
+}
+
+input ComponentTranslationsCategoriesTitleFiltersInput {
+  and: [ComponentTranslationsCategoriesTitleFiltersInput]
+  language: LanguageFiltersInput
+  not: ComponentTranslationsCategoriesTitleFiltersInput
+  or: [ComponentTranslationsCategoriesTitleFiltersInput]
+  short: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentTranslationsCategoriesTitleInput {
+  id: ID
+  language: ID
+  short: String
+  title: String
+}
+
+input ComponentTranslationsChroniclesFiltersInput {
+  and: [ComponentTranslationsChroniclesFiltersInput]
+  body: ComponentCollectionsComponentBodyFiltersInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsChroniclesFiltersInput
+  or: [ComponentTranslationsChroniclesFiltersInput]
+  summary: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentTranslationsChroniclesInput {
+  body: ComponentCollectionsComponentBodyInput
+  id: ID
+  language: ID
+  summary: String
+  title: String
+}
+
+input ComponentTranslationsChronologyEraFiltersInput {
+  and: [ComponentTranslationsChronologyEraFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsChronologyEraFiltersInput
+  or: [ComponentTranslationsChronologyEraFiltersInput]
+  title: StringFilterInput
+}
+
+input ComponentTranslationsChronologyEraInput {
+  description: String
+  id: ID
+  language: ID
+  title: String
+}
+
+input ComponentTranslationsChronologyItemFiltersInput {
+  and: [ComponentTranslationsChronologyItemFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsChronologyItemFiltersInput
+  note: StringFilterInput
+  or: [ComponentTranslationsChronologyItemFiltersInput]
+  status: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentTranslationsChronologyItemInput {
+  description: String
+  id: ID
+  language: ID
+  note: String
+  status: ENUM_COMPONENTTRANSLATIONSCHRONOLOGYITEM_STATUS
+  title: String
+}
+
+input ComponentTranslationsGamePlatformsTranslationsFiltersInput {
+  and: [ComponentTranslationsGamePlatformsTranslationsFiltersInput]
+  language: LanguageFiltersInput
+  not: ComponentTranslationsGamePlatformsTranslationsFiltersInput
+  or: [ComponentTranslationsGamePlatformsTranslationsFiltersInput]
+  short: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentTranslationsGamePlatformsTranslationsInput {
+  id: ID
+  language: ID
+  short: String
+  title: String
+}
+
+input ComponentTranslationsGlossaryDefinitionFiltersInput {
+  and: [ComponentTranslationsGlossaryDefinitionFiltersInput]
+  definition: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsGlossaryDefinitionFiltersInput
+  or: [ComponentTranslationsGlossaryDefinitionFiltersInput]
+  proofreaders: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  transcribers: RecorderFiltersInput
+  translators: RecorderFiltersInput
+}
+
+input ComponentTranslationsGlossaryDefinitionInput {
+  definition: String
+  id: ID
+  language: ID
+  proofreaders: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTTRANSLATIONSGLOSSARYDEFINITION_STATUS
+  transcribers: [ID]
+  translators: [ID]
+}
+
+input ComponentTranslationsGlossaryItemFiltersInput {
+  and: [ComponentTranslationsGlossaryItemFiltersInput]
+  language: LanguageFiltersInput
+  not: ComponentTranslationsGlossaryItemFiltersInput
+  or: [ComponentTranslationsGlossaryItemFiltersInput]
+  title: StringFilterInput
+}
+
+input ComponentTranslationsGlossaryItemInput {
+  id: ID
+  language: ID
+  title: String
+}
+
+input ComponentTranslationsLibraryItemsFiltersInput {
+  and: [ComponentTranslationsLibraryItemsFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsLibraryItemsFiltersInput
+  or: [ComponentTranslationsLibraryItemsFiltersInput]
+}
+
+input ComponentTranslationsLibraryItemsInput {
+  description: String
+  id: ID
+  language: ID
+}
+
+input ComponentTranslationsPostsFiltersInput {
+  and: [ComponentTranslationsPostsFiltersInput]
+  body: StringFilterInput
+  excerpt: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsPostsFiltersInput
+  or: [ComponentTranslationsPostsFiltersInput]
+  proofreaders: RecorderFiltersInput
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  title: StringFilterInput
+  translators: RecorderFiltersInput
+}
+
+input ComponentTranslationsPostsInput {
+  body: String
+  excerpt: String
+  id: ID
+  language: ID
+  proofreaders: [ID]
+  source_language: ID
+  status: ENUM_COMPONENTTRANSLATIONSPOSTS_STATUS
+  thumbnail: ID
+  title: String
+  translators: [ID]
+}
+
+input ComponentTranslationsReinCostumesFiltersInput {
+  and: [ComponentTranslationsReinCostumesFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  name: StringFilterInput
+  not: ComponentTranslationsReinCostumesFiltersInput
+  or: [ComponentTranslationsReinCostumesFiltersInput]
+}
+
+input ComponentTranslationsReinCostumesInput {
+  description: String
+  id: ID
+  language: ID
+  name: String
+}
+
+input ComponentTranslationsReinEmblemsFiltersInput {
+  and: [ComponentTranslationsReinEmblemsFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  name: StringFilterInput
+  not: ComponentTranslationsReinEmblemsFiltersInput
+  or: [ComponentTranslationsReinEmblemsFiltersInput]
+}
+
+input ComponentTranslationsReinEmblemsInput {
+  description: String
+  id: ID
+  language: ID
+  name: String
+}
+
+input ComponentTranslationsSimpleTitleFiltersInput {
+  and: [ComponentTranslationsSimpleTitleFiltersInput]
+  language: LanguageFiltersInput
+  not: ComponentTranslationsSimpleTitleFiltersInput
+  or: [ComponentTranslationsSimpleTitleFiltersInput]
+  title: StringFilterInput
+}
+
+input ComponentTranslationsSimpleTitleInput {
+  id: ID
+  language: ID
+  title: String
+}
+
+input ComponentTranslationsTitleFiltersInput {
+  and: [ComponentTranslationsTitleFiltersInput]
+  audio_set: ComponentSetsAudioSetFiltersInput
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsTitleFiltersInput
+  or: [ComponentTranslationsTitleFiltersInput]
+  pre_title: StringFilterInput
+  subtitle: StringFilterInput
+  text_set: ComponentSetsTextSetFiltersInput
+  title: StringFilterInput
+  video_set: ComponentSetsVideoSetFiltersInput
+}
+
+input ComponentTranslationsTitleInput {
+  audio_set: ComponentSetsAudioSetInput
+  description: String
+  id: ID
+  language: ID
+  pre_title: String
+  subtitle: String
+  text_set: ComponentSetsTextSetInput
+  title: String
+  video_set: ComponentSetsVideoSetInput
+}
+
+input ComponentTranslationsWeaponStoryFiltersInput {
+  and: [ComponentTranslationsWeaponStoryFiltersInput]
+  language: LanguageFiltersInput
+  name: StringFilterInput
+  not: ComponentTranslationsWeaponStoryFiltersInput
+  or: [ComponentTranslationsWeaponStoryFiltersInput]
+}
+
+input ComponentTranslationsWeaponStoryInput {
+  id: ID
+  language: ID
+  name: String
+}
+
+input ComponentTranslationsWeaponStoryStoryFiltersInput {
+  and: [ComponentTranslationsWeaponStoryStoryFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  level_1: StringFilterInput
+  level_2: StringFilterInput
+  level_3: StringFilterInput
+  level_4: StringFilterInput
+  not: ComponentTranslationsWeaponStoryStoryFiltersInput
+  or: [ComponentTranslationsWeaponStoryStoryFiltersInput]
+  status: StringFilterInput
+}
+
+input ComponentTranslationsWeaponStoryStoryInput {
+  description: String
+  id: ID
+  language: ID
+  level_1: String
+  level_2: String
+  level_3: String
+  level_4: String
+  status: ENUM_COMPONENTTRANSLATIONSWEAPONSTORYSTORY_STATUS
+}
+
+input ComponentTranslationsWeaponStoryTypeFiltersInput {
+  and: [ComponentTranslationsWeaponStoryTypeFiltersInput]
+  language: LanguageFiltersInput
+  name: StringFilterInput
+  not: ComponentTranslationsWeaponStoryTypeFiltersInput
+  or: [ComponentTranslationsWeaponStoryTypeFiltersInput]
+}
+
+input ComponentTranslationsWeaponStoryTypeInput {
+  id: ID
+  language: ID
+  name: String
+}
+
+input ComponentTranslationsWebArchivesFiltersInput {
+  and: [ComponentTranslationsWebArchivesFiltersInput]
+  description: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsWebArchivesFiltersInput
+  notes: StringFilterInput
+  or: [ComponentTranslationsWebArchivesFiltersInput]
+}
+
+input ComponentTranslationsWebArchivesInput {
+  description: String
+  id: ID
+  language: ID
+  notes: String
+}
+
+input ComponentTranslationsWikiFiltersInput {
+  aliases: ComponentCollectionsComponentAliasesFiltersInput
+  and: [ComponentTranslationsWikiFiltersInput]
+  body: ComponentCollectionsComponentBodyFiltersInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsWikiFiltersInput
+  or: [ComponentTranslationsWikiFiltersInput]
+  summary: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentTranslationsWikiInput {
+  aliases: [ComponentCollectionsComponentAliasesInput]
+  body: ComponentCollectionsComponentBodyInput
+  id: ID
+  language: ID
+  summary: String
+  title: String
+}
+
+input ComponentTranslationsWikiPostFiltersInput {
+  and: [ComponentTranslationsWikiPostFiltersInput]
+  body: StringFilterInput
+  language: LanguageFiltersInput
+  not: ComponentTranslationsWikiPostFiltersInput
+  or: [ComponentTranslationsWikiPostFiltersInput]
+  source_language: LanguageFiltersInput
+  status: StringFilterInput
+  summary: StringFilterInput
+}
+
+input ComponentWikiSpecializationGlossaryItemFiltersInput {
+  and: [ComponentWikiSpecializationGlossaryItemFiltersInput]
+  categories: CategoryFiltersInput
+  not: ComponentWikiSpecializationGlossaryItemFiltersInput
+  or: [ComponentWikiSpecializationGlossaryItemFiltersInput]
+  source: SourceFiltersInput
+  translations: ComponentTranslationsGlossaryDefinitionFiltersInput
+}
+
+input ComponentWikiSpecializationGlossaryItemInput {
+  categories: [ID]
+  id: ID
+  source: ID
+  translations: [ComponentTranslationsGlossaryDefinitionInput]
+}
+
+input ContentFiltersInput {
+  and: [ContentFiltersInput]
+  categories: CategoryFiltersInput
+  chronicles: ChronicleFiltersInput
+  createdAt: DateTimeFilterInput
+  folder: ContentsFolderFiltersInput
+  id: IDFilterInput
+  next_contents: ContentFiltersInput
+  not: ContentFiltersInput
+  or: [ContentFiltersInput]
+  previous_contents: ContentFiltersInput
+  ranged_contents: RangedContentFiltersInput
+  slug: StringFilterInput
+  translations: ComponentTranslationsTitleFiltersInput
+  type: ContentTypeFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ContentInput {
+  categories: [ID]
+  chronicles: [ID]
+  folder: ID
+  next_contents: [ID]
+  previous_contents: [ID]
+  ranged_contents: [ID]
+  slug: String
+  thumbnail: ID
+  translations: [ComponentTranslationsTitleInput]
+  type: ID
+}
+
+input ContentTypeFiltersInput {
+  and: [ContentTypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: ContentTypeFiltersInput
+  or: [ContentTypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ContentTypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input ContentsFolderFiltersInput {
+  and: [ContentsFolderFiltersInput]
+  contents: ContentFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: ContentsFolderFiltersInput
+  or: [ContentsFolderFiltersInput]
+  parent_folder: ContentsFolderFiltersInput
+  slug: StringFilterInput
+  subfolders: ContentsFolderFiltersInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ContentsFolderInput {
+  contents: [ID]
+  parent_folder: ID
+  slug: String
+  subfolders: [ID]
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input CurrencyFiltersInput {
+  and: [CurrencyFiltersInput]
+  code: StringFilterInput
+  createdAt: DateTimeFilterInput
+  display_decimals: BooleanFilterInput
+  id: IDFilterInput
+  not: CurrencyFiltersInput
+  or: [CurrencyFiltersInput]
+  rate_to_usd: FloatFilterInput
+  symbol: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input CurrencyInput {
+  code: String
+  display_decimals: Boolean
+  rate_to_usd: Float
+  symbol: String
+}
+
+input DateTimeFilterInput {
+  and: [DateTime]
+  between: [DateTime]
+  contains: DateTime
+  containsi: DateTime
+  endsWith: DateTime
+  eq: DateTime
+  eqi: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  ne: DateTime
+  not: DateTimeFilterInput
+  notContains: DateTime
+  notContainsi: DateTime
+  notIn: [DateTime]
+  notNull: Boolean
+  null: Boolean
+  or: [DateTime]
+  startsWith: DateTime
+}
+
+input FileInfoInput {
+  alternativeText: String
+  caption: String
+  name: String
+}
+
+input FloatFilterInput {
+  and: [Float]
+  between: [Float]
+  contains: Float
+  containsi: Float
+  endsWith: Float
+  eq: Float
+  eqi: Float
+  gt: Float
+  gte: Float
+  in: [Float]
+  lt: Float
+  lte: Float
+  ne: Float
+  not: FloatFilterInput
+  notContains: Float
+  notContainsi: Float
+  notIn: [Float]
+  notNull: Boolean
+  null: Boolean
+  or: [Float]
+  startsWith: Float
+}
+
+input GamePlatformFiltersInput {
+  and: [GamePlatformFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: GamePlatformFiltersInput
+  or: [GamePlatformFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsGamePlatformsTranslationsFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input GamePlatformInput {
+  slug: String
+  titles: [ComponentTranslationsGamePlatformsTranslationsInput]
+}
+
+input GlossaryItemFiltersInput {
+  and: [GlossaryItemFiltersInput]
+  createdAt: DateTimeFilterInput
+  definitions: ComponentCollectionsComponentGlossaryDefinitionFiltersInput
+  id: IDFilterInput
+  not: GlossaryItemFiltersInput
+  or: [GlossaryItemFiltersInput]
+  slug: StringFilterInput
+  title: ComponentTranslationsGlossaryItemFiltersInput
+  type: GlossaryItemTypeFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input GlossaryItemInput {
+  definitions: [ComponentCollectionsComponentGlossaryDefinitionInput]
+  slug: String
+  title: [ComponentTranslationsGlossaryItemInput]
+  type: ID
+}
+
+input GlossaryItemTypeFiltersInput {
+  and: [GlossaryItemTypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: GlossaryItemTypeFiltersInput
+  or: [GlossaryItemTypeFiltersInput]
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input GlossaryItemTypeInput {
+  type: String
+}
+
+input GroupSubtypeFiltersInput {
+  and: [GroupSubtypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: GroupSubtypeFiltersInput
+  or: [GroupSubtypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input GroupSubtypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input IDFilterInput {
+  and: [ID]
+  between: [ID]
+  contains: ID
+  containsi: ID
+  endsWith: ID
+  eq: ID
+  eqi: ID
+  gt: ID
+  gte: ID
+  in: [ID]
+  lt: ID
+  lte: ID
+  ne: ID
+  not: IDFilterInput
+  notContains: ID
+  notContainsi: ID
+  notIn: [ID]
+  notNull: Boolean
+  null: Boolean
+  or: [ID]
+  startsWith: ID
+}
+
+input IntFilterInput {
+  and: [Int]
+  between: [Int]
+  contains: Int
+  containsi: Int
+  endsWith: Int
+  eq: Int
+  eqi: Int
+  gt: Int
+  gte: Int
+  in: [Int]
+  lt: Int
+  lte: Int
+  ne: Int
+  not: IntFilterInput
+  notContains: Int
+  notContainsi: Int
+  notIn: [Int]
+  notNull: Boolean
+  null: Boolean
+  or: [Int]
+  startsWith: Int
+}
+
+input JSONFilterInput {
+  and: [JSON]
+  between: [JSON]
+  contains: JSON
+  containsi: JSON
+  endsWith: JSON
+  eq: JSON
+  eqi: JSON
+  gt: JSON
+  gte: JSON
+  in: [JSON]
+  lt: JSON
+  lte: JSON
+  ne: JSON
+  not: JSONFilterInput
+  notContains: JSON
+  notContainsi: JSON
+  notIn: [JSON]
+  notNull: Boolean
+  null: Boolean
+  or: [JSON]
+  startsWith: JSON
+}
+
+input LanguageFiltersInput {
+  and: [LanguageFiltersInput]
+  code: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  localized_name: StringFilterInput
+  name: StringFilterInput
+  not: LanguageFiltersInput
+  or: [LanguageFiltersInput]
+  updatedAt: DateTimeFilterInput
+}
+
+input LanguageInput {
+  code: String
+  localized_name: String
+  name: String
+}
+
+input LibraryItemFiltersInput {
+  and: [LibraryItemFiltersInput]
+  categories: CategoryFiltersInput
+  contents: RangedContentFiltersInput
+  createdAt: DateTimeFilterInput
+  descriptions: ComponentTranslationsLibraryItemsFiltersInput
+  digital: BooleanFilterInput
+  download_available: BooleanFilterInput
+  id: IDFilterInput
+  images: ComponentCollectionsComponentLibraryImagesFiltersInput
+  not: LibraryItemFiltersInput
+  or: [LibraryItemFiltersInput]
+  price: ComponentBasicsPriceFiltersInput
+  primary: BooleanFilterInput
+  release_date: ComponentBasicsDatepickerFiltersInput
+  root_item: BooleanFilterInput
+  size: ComponentBasicsSizeFiltersInput
+  slug: StringFilterInput
+  subitem_of: LibraryItemFiltersInput
+  subitems: LibraryItemFiltersInput
+  submerchs: MerchItemFiltersInput
+  subtitle: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  urls: ComponentBasicsUrlFiltersInput
+}
+
+input LibraryItemInput {
+  categories: [ID]
+  contents: [ID]
+  descriptions: [ComponentTranslationsLibraryItemsInput]
+  digital: Boolean
+  download_available: Boolean
+  gallery: [ID]
+  images: [ComponentCollectionsComponentLibraryImagesInput]
+  metadata: [LibraryItemMetadataDynamicZoneInput!]
+  price: ComponentBasicsPriceInput
+  primary: Boolean
+  release_date: ComponentBasicsDatepickerInput
+  root_item: Boolean
+  size: ComponentBasicsSizeInput
+  slug: String
+  subitem_of: [ID]
+  subitems: [ID]
+  submerchs: [ID]
+  subtitle: String
+  thumbnail: ID
+  title: String
+  urls: [ComponentBasicsUrlInput]
+}
+
+input MerchItemFiltersInput {
+  and: [MerchItemFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  library_items: LibraryItemFiltersInput
+  not: MerchItemFiltersInput
+  or: [MerchItemFiltersInput]
+  slug: StringFilterInput
+  subtitle: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input MerchItemInput {
+  library_items: [ID]
+  slug: String
+  subtitle: String
+  thumbnail: ID
+  title: String
+}
+
+input MetadataTypeFiltersInput {
+  and: [MetadataTypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: MetadataTypeFiltersInput
+  or: [MetadataTypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input MetadataTypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input PaginationArg {
+  limit: Int
+  page: Int
+  pageSize: Int
+  start: Int
+}
+
+input PostFiltersInput {
+  and: [PostFiltersInput]
+  authors: RecorderFiltersInput
+  categories: CategoryFiltersInput
+  createdAt: DateTimeFilterInput
+  date: ComponentBasicsDatepickerFiltersInput
+  hidden: BooleanFilterInput
+  id: IDFilterInput
+  not: PostFiltersInput
+  or: [PostFiltersInput]
+  slug: StringFilterInput
+  translations: ComponentTranslationsPostsFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input PostInput {
+  authors: [ID]
+  categories: [ID]
+  date: ComponentBasicsDatepickerInput
+  hidden: Boolean
+  slug: String
+  thumbnail: ID
+  translations: [ComponentTranslationsPostsInput]
+}
+
+input RangedContentFiltersInput {
+  and: [RangedContentFiltersInput]
+  content: ContentFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  library_item: LibraryItemFiltersInput
+  not: RangedContentFiltersInput
+  or: [RangedContentFiltersInput]
+  scan_set: ComponentSetsScanSetFiltersInput
+  slug: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input RangedContentInput {
+  content: ID
+  library_item: ID
+  range: [RangedContentRangeDynamicZoneInput!]
+  scan_set: [ComponentSetsScanSetInput]
+  slug: String
+}
+
+input RecorderFiltersInput {
+  and: [RecorderFiltersInput]
+  anonymize: BooleanFilterInput
+  anonymous_code: StringFilterInput
+  bio: ComponentTranslationsBioFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  languages: LanguageFiltersInput
+  not: RecorderFiltersInput
+  or: [RecorderFiltersInput]
+  pronouns: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  username: StringFilterInput
+}
+
+input RecorderInput {
+  anonymize: Boolean
+  anonymous_code: String
+  avatar: ID
+  bio: [ComponentTranslationsBioInput]
+  languages: [ID]
+  pronouns: String
+  username: String
+}
+
+input ReinCostumeFiltersInput {
+  and: [ReinCostumeFiltersInput]
+  createdAt: DateTimeFilterInput
+  emblem: ReinEmblemFiltersInput
+  id: IDFilterInput
+  not: ReinCostumeFiltersInput
+  or: [ReinCostumeFiltersInput]
+  slug: StringFilterInput
+  translations: ComponentTranslationsReinCostumesFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ReinCostumeInput {
+  emblem: ID
+  slug: String
+  sprite: ID
+  thumbnail: ID
+  translations: [ComponentTranslationsReinCostumesInput]
+}
+
+input ReinEmblemFiltersInput {
+  and: [ReinEmblemFiltersInput]
+  costumes: ReinCostumeFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: ReinEmblemFiltersInput
+  or: [ReinEmblemFiltersInput]
+  slug: StringFilterInput
+  translations: ComponentTranslationsReinEmblemsFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ReinEmblemInput {
+  costumes: [ID]
+  slug: String
+  translations: [ComponentTranslationsReinEmblemsInput]
+}
+
+input SourceFiltersInput {
+  and: [SourceFiltersInput]
+  content: ContentFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: SourceFiltersInput
+  or: [SourceFiltersInput]
+  ranged_content: RangedContentFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input SourceInput {
+  content: ID
+  name: String
+  ranged_content: ID
+}
+
+input StringFilterInput {
+  and: [String]
+  between: [String]
+  contains: String
+  containsi: String
+  endsWith: String
+  eq: String
+  eqi: String
+  gt: String
+  gte: String
+  in: [String]
+  lt: String
+  lte: String
+  ne: String
+  not: StringFilterInput
+  notContains: String
+  notContainsi: String
+  notIn: [String]
+  notNull: Boolean
+  null: Boolean
+  or: [String]
+  startsWith: String
+}
+
+input TextualSubtypeFiltersInput {
+  and: [TextualSubtypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: TextualSubtypeFiltersInput
+  or: [TextualSubtypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input TextualSubtypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input UploadFileFiltersInput {
+  alternativeText: StringFilterInput
+  and: [UploadFileFiltersInput]
+  caption: StringFilterInput
+  createdAt: DateTimeFilterInput
+  ext: StringFilterInput
+  folder: UploadFolderFiltersInput
+  folderPath: StringFilterInput
+  formats: JSONFilterInput
+  hash: StringFilterInput
+  height: IntFilterInput
+  id: IDFilterInput
+  mime: StringFilterInput
+  name: StringFilterInput
+  not: UploadFileFiltersInput
+  or: [UploadFileFiltersInput]
+  previewUrl: StringFilterInput
+  provider: StringFilterInput
+  provider_metadata: JSONFilterInput
+  size: FloatFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+  width: IntFilterInput
+}
+
+input UploadFileInput {
+  alternativeText: String
+  caption: String
+  ext: String
+  folder: ID
+  folderPath: String
+  formats: JSON
+  hash: String
+  height: Int
+  mime: String
+  name: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  size: Float
+  url: String
+  width: Int
+}
+
+input UploadFolderFiltersInput {
+  and: [UploadFolderFiltersInput]
+  children: UploadFolderFiltersInput
+  createdAt: DateTimeFilterInput
+  files: UploadFileFiltersInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: UploadFolderFiltersInput
+  or: [UploadFolderFiltersInput]
+  parent: UploadFolderFiltersInput
+  path: StringFilterInput
+  pathId: IntFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input UploadFolderInput {
+  children: [ID]
+  files: [ID]
+  name: String
+  parent: ID
+  path: String
+  pathId: Int
+}
+
+input VideoChannelFiltersInput {
+  and: [VideoChannelFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: VideoChannelFiltersInput
+  or: [VideoChannelFiltersInput]
+  subscribers: IntFilterInput
+  title: StringFilterInput
+  uid: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  videos: VideoFiltersInput
+}
+
+input VideoChannelInput {
+  subscribers: Int
+  title: String
+  uid: String
+  videos: [ID]
+}
+
+input VideoFiltersInput {
+  and: [VideoFiltersInput]
+  audio_languages: LanguageFiltersInput
+  categories: CategoryFiltersInput
+  channel: VideoChannelFiltersInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  duration: IntFilterInput
+  gone: BooleanFilterInput
+  height: IntFilterInput
+  id: IDFilterInput
+  likes: IntFilterInput
+  live_chat: BooleanFilterInput
+  not: VideoFiltersInput
+  or: [VideoFiltersInput]
+  published_date: ComponentBasicsDatepickerFiltersInput
+  source: StringFilterInput
+  sub_languages: LanguageFiltersInput
+  title: StringFilterInput
+  uid: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  views: IntFilterInput
+  width: IntFilterInput
+}
+
+input VideoInput {
+  audio_languages: [ID]
+  categories: [ID]
+  channel: ID
+  description: String
+  duration: Int
+  gone: Boolean
+  height: Int
+  likes: Int
+  live_chat: Boolean
+  published_date: ComponentBasicsDatepickerInput
+  source: ENUM_VIDEO_SOURCE
+  sub_languages: [ID]
+  title: String
+  uid: String
+  views: Int
+  width: Int
+}
+
+input VideoSubtypeFiltersInput {
+  and: [VideoSubtypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: VideoSubtypeFiltersInput
+  or: [VideoSubtypeFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input VideoSubtypeInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
+
+input WeaponStoryFiltersInput {
+  and: [WeaponStoryFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: ComponentTranslationsWeaponStoryFiltersInput
+  not: WeaponStoryFiltersInput
+  or: [WeaponStoryFiltersInput]
+  slug: StringFilterInput
+  stories: ComponentCollectionsComponentWeaponStoryFiltersInput
+  type: WeaponStoryTypeFiltersInput
+  updatedAt: DateTimeFilterInput
+  weapon_group: WeaponStoryGroupFiltersInput
+  wiki_page: WikiPageFiltersInput
+}
+
+input WeaponStoryGroupFiltersInput {
+  and: [WeaponStoryGroupFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: WeaponStoryGroupFiltersInput
+  or: [WeaponStoryGroupFiltersInput]
+  slug: StringFilterInput
+  subgroup_of: WeaponStoryGroupFiltersInput
+  subgroups: WeaponStoryGroupFiltersInput
+  updatedAt: DateTimeFilterInput
+  weapons: WeaponStoryFiltersInput
+}
+
+input WeaponStoryGroupInput {
+  slug: String
+  subgroup_of: ID
+  subgroups: [ID]
+  weapons: [ID]
+}
+
+input WeaponStoryInput {
+  name: [ComponentTranslationsWeaponStoryInput]
+  slug: String
+  stories: [ComponentCollectionsComponentWeaponStoryInput]
+  thumbnail: ID
+  type: ID
+  weapon_group: ID
+  wiki_page: ID
+}
+
+input WeaponStoryTypeFiltersInput {
+  and: [WeaponStoryTypeFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: WeaponStoryTypeFiltersInput
+  or: [WeaponStoryTypeFiltersInput]
+  slug: StringFilterInput
+  translations: ComponentTranslationsWeaponStoryTypeFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input WeaponStoryTypeInput {
+  slug: String
+  translations: [ComponentTranslationsWeaponStoryTypeInput]
+}
+
+input WebArchiveFiltersInput {
+  and: [WebArchiveFiltersInput]
+  author: StringFilterInput
+  createdAt: DateTimeFilterInput
+  date: ComponentBasicsDatepickerFiltersInput
+  descriptions: ComponentTranslationsWebArchivesFiltersInput
+  format: StringFilterInput
+  id: IDFilterInput
+  not: WebArchiveFiltersInput
+  num_pages: IntFilterInput
+  or: [WebArchiveFiltersInput]
+  size: ComponentBasicsFileSizeFiltersInput
+  source_url: StringFilterInput
+  still_online: BooleanFilterInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input WebArchiveInput {
+  author: String
+  date: ComponentBasicsDatepickerInput
+  descriptions: [ComponentTranslationsWebArchivesInput]
+  format: ENUM_WEBARCHIVE_FORMAT
+  num_pages: Int
+  size: ComponentBasicsFileSizeInput
+  source_url: String
+  still_online: Boolean
+  type: ENUM_WEBARCHIVE_TYPE
+}
+
+input WebsiteInterfaceFiltersInput {
+  about_us: StringFilterInput
+  about_us_description: StringFilterInput
+  accords_handbook: StringFilterInput
+  all: StringFilterInput
+  always_show_info: StringFilterInput
+  anchor_link_copied: StringFilterInput
+  and: [WebsiteInterfaceFiltersInput]
+  archives: StringFilterInput
+  archives_description: StringFilterInput
+  audio: StringFilterInput
+  author: StringFilterInput
+  auto: StringFilterInput
+  available_at: StringFilterInput
+  available_at_x: StringFilterInput
+  back_matter: StringFilterInput
+  binding: StringFilterInput
+  book_fold: StringFilterInput
+  calculated: StringFilterInput
+  category: StringFilterInput
+  channel: StringFilterInput
+  chronicles: StringFilterInput
+  chronicles_description: StringFilterInput
+  chronicles_short_description: StringFilterInput
+  chronology: StringFilterInput
+  cleaners: StringFilterInput
+  contact_us: StringFilterInput
+  content: StringFilterInput
+  content_is_not_available: StringFilterInput
+  contents: StringFilterInput
+  contents_description: StringFilterInput
+  contents_short_description: StringFilterInput
+  copy_anchor_link: StringFilterInput
+  copyright_notice: StringFilterInput
+  cover: StringFilterInput
+  createdAt: DateTimeFilterInput
+  currency: StringFilterInput
+  dark: StringFilterInput
+  dark_mode_extension_warning: StringFilterInput
+  default_description: StringFilterInput
+  definition_x: StringFilterInput
+  description: StringFilterInput
+  details: StringFilterInput
+  done: StringFilterInput
+  double_page_view: StringFilterInput
+  download_archive: StringFilterInput
+  draft: StringFilterInput
+  dubber: StringFilterInput
+  email: StringFilterInput
+  email_gdpr_notice: StringFilterInput
+  empty_folder_message: StringFilterInput
+  folders: StringFilterInput
+  followup_content: StringFilterInput
+  font: StringFilterInput
+  font_size: StringFilterInput
+  front_matter: StringFilterInput
+  gallery: StringFilterInput
+  game: StringFilterInput
+  group: StringFilterInput
+  group_by: StringFilterInput
+  hardcover: StringFilterInput
+  have_it: StringFilterInput
+  height: StringFilterInput
+  id: IDFilterInput
+  incomplete: StringFilterInput
+  item: StringFilterInput
+  item_not_available: StringFilterInput
+  language: StringFilterInput
+  least_popular: StringFilterInput
+  left_to_right: StringFilterInput
+  legality: StringFilterInput
+  level_x: StringFilterInput
+  library: StringFilterInput
+  library_description: StringFilterInput
+  library_short_description: StringFilterInput
+  licensing_notice: StringFilterInput
+  light: StringFilterInput
+  lighting: StringFilterInput
+  listen_content: StringFilterInput
+  longest: StringFilterInput
+  message: StringFilterInput
+  most_popular: StringFilterInput
+  name: StringFilterInput
+  newest: StringFilterInput
+  news: StringFilterInput
+  news_description: StringFilterInput
+  night_reader: StringFilterInput
+  no_results_message: StringFilterInput
+  no_source_warning: StringFilterInput
+  not: WebsiteInterfaceFiltersInput
+  notes: StringFilterInput
+  oldest: StringFilterInput
+  only_display_items_i_have: StringFilterInput
+  only_display_items_i_want: StringFilterInput
+  only_display_unmarked_items: StringFilterInput
+  only_unavailable_videos: StringFilterInput
+  open_content: StringFilterInput
+  open_search: StringFilterInput
+  open_settings: StringFilterInput
+  or: [WebsiteInterfaceFiltersInput]
+  order_by: StringFilterInput
+  other: StringFilterInput
+  page: StringFilterInput
+  page_not_found: StringFilterInput
+  page_order: StringFilterInput
+  paper_texture: StringFilterInput
+  paperback: StringFilterInput
+  performance_mode: StringFilterInput
+  performance_mode_tooltip: StringFilterInput
+  player_name: StringFilterInput
+  player_name_tooltip: StringFilterInput
+  previous_content: StringFilterInput
+  price: StringFilterInput
+  primary_language: StringFilterInput
+  pronouns: StringFilterInput
+  proofreader: StringFilterInput
+  quality: StringFilterInput
+  read_content: StringFilterInput
+  reading_layout: StringFilterInput
+  release_date: StringFilterInput
+  release_year: StringFilterInput
+  reset_all_filters: StringFilterInput
+  reset_all_options: StringFilterInput
+  response_email_success: StringFilterInput
+  response_invalid_code: StringFilterInput
+  response_invalid_email: StringFilterInput
+  return_to_x: StringFilterInput
+  review: StringFilterInput
+  right_to_left: StringFilterInput
+  scan: StringFilterInput
+  scanlation: StringFilterInput
+  scanners: StringFilterInput
+  search: StringFilterInput
+  search_placeholder: StringFilterInput
+  secondary_language: StringFilterInput
+  select_option_sidebar: StringFilterInput
+  send: StringFilterInput
+  settings: StringFilterInput
+  shadow: StringFilterInput
+  sharing_policy: StringFilterInput
+  shortest: StringFilterInput
+  show_primary_items: StringFilterInput
+  show_secondary_items: StringFilterInput
+  show_subitems: StringFilterInput
+  showing_x_out_of_y_results: StringFilterInput
+  side_pages: StringFilterInput
+  single_page_view: StringFilterInput
+  size: StringFilterInput
+  source: StringFilterInput
+  source_language: StringFilterInput
+  special_pages: StringFilterInput
+  status: StringFilterInput
+  status_done: StringFilterInput
+  status_draft: StringFilterInput
+  status_incomplete: StringFilterInput
+  status_review: StringFilterInput
+  story_x: StringFilterInput
+  subber: StringFilterInput
+  subitem: StringFilterInput
+  subitem_of_x: StringFilterInput
+  subscribers: StringFilterInput
+  summary: StringFilterInput
+  switch_to_folder_view: StringFilterInput
+  switch_to_grid_view: StringFilterInput
+  table_of_contents: StringFilterInput
+  tags: StringFilterInput
+  textual: StringFilterInput
+  theme: StringFilterInput
+  thickness: StringFilterInput
+  transcriber: StringFilterInput
+  transcript_notice: StringFilterInput
+  translation_notice: StringFilterInput
+  translator: StringFilterInput
+  type: StringFilterInput
+  type_information: StringFilterInput
+  typesetters: StringFilterInput
+  ui_language: LanguageFiltersInput
+  updatedAt: DateTimeFilterInput
+  variant: StringFilterInput
+  variant_of_x: StringFilterInput
+  video: StringFilterInput
+  videos: StringFilterInput
+  view_on: StringFilterInput
+  view_on_x: StringFilterInput
+  view_scans: StringFilterInput
+  want_it: StringFilterInput
+  watch_content: StringFilterInput
+  weapon: StringFilterInput
+  weapons_description: StringFilterInput
+  width: StringFilterInput
+  wiki: StringFilterInput
+  wiki_description: StringFilterInput
+  wiki_short_description: StringFilterInput
+  x_results: StringFilterInput
+}
+
+input WebsiteInterfaceInput {
+  about_us: String
+  about_us_description: String
+  accords_handbook: String
+  all: String
+  always_show_info: String
+  anchor_link_copied: String
+  archives: String
+  archives_description: String
+  audio: String
+  author: String
+  auto: String
+  available_at: String
+  available_at_x: String
+  back_matter: String
+  binding: String
+  book_fold: String
+  calculated: String
+  category: String
+  channel: String
+  chronicles: String
+  chronicles_description: String
+  chronicles_short_description: String
+  chronology: String
+  cleaners: String
+  contact_us: String
+  content: String
+  content_is_not_available: String
+  contents: String
+  contents_description: String
+  contents_short_description: String
+  copy_anchor_link: String
+  copyright_notice: String
+  cover: String
+  currency: String
+  dark: String
+  dark_mode_extension_warning: String
+  default_description: String
+  definition_x: String
+  description: String
+  details: String
+  done: String
+  double_page_view: String
+  download_archive: String
+  draft: String
+  dubber: String
+  email: String
+  email_gdpr_notice: String
+  empty_folder_message: String
+  folders: String
+  followup_content: String
+  font: String
+  font_size: String
+  front_matter: String
+  gallery: String
+  game: String
+  group: String
+  group_by: String
+  hardcover: String
+  have_it: String
+  height: String
+  incomplete: String
+  item: String
+  item_not_available: String
+  language: String
+  least_popular: String
+  left_to_right: String
+  legality: String
+  level_x: String
+  library: String
+  library_description: String
+  library_short_description: String
+  licensing_notice: String
+  light: String
+  lighting: String
+  listen_content: String
+  longest: String
+  message: String
+  most_popular: String
+  name: String
+  newest: String
+  news: String
+  news_description: String
+  night_reader: String
+  no_results_message: String
+  no_source_warning: String
+  notes: String
+  oldest: String
+  only_display_items_i_have: String
+  only_display_items_i_want: String
+  only_display_unmarked_items: String
+  only_unavailable_videos: String
+  open_content: String
+  open_search: String
+  open_settings: String
+  order_by: String
+  other: String
+  page: String
+  page_not_found: String
+  page_order: String
+  paper_texture: String
+  paperback: String
+  performance_mode: String
+  performance_mode_tooltip: String
+  player_name: String
+  player_name_tooltip: String
+  previous_content: String
+  price: String
+  primary_language: String
+  pronouns: String
+  proofreader: String
+  quality: String
+  read_content: String
+  reading_layout: String
+  release_date: String
+  release_year: String
+  reset_all_filters: String
+  reset_all_options: String
+  response_email_success: String
+  response_invalid_code: String
+  response_invalid_email: String
+  return_to_x: String
+  review: String
+  right_to_left: String
+  scan: String
+  scanlation: String
+  scanners: String
+  search: String
+  search_placeholder: String
+  secondary_language: String
+  select_option_sidebar: String
+  send: String
+  settings: String
+  shadow: String
+  sharing_policy: String
+  shortest: String
+  show_primary_items: String
+  show_secondary_items: String
+  show_subitems: String
+  showing_x_out_of_y_results: String
+  side_pages: String
+  single_page_view: String
+  size: String
+  source: String
+  source_language: String
+  special_pages: String
+  status: String
+  status_done: String
+  status_draft: String
+  status_incomplete: String
+  status_review: String
+  story_x: String
+  subber: String
+  subitem: String
+  subitem_of_x: String
+  subscribers: String
+  summary: String
+  switch_to_folder_view: String
+  switch_to_grid_view: String
+  table_of_contents: String
+  tags: String
+  textual: String
+  theme: String
+  thickness: String
+  transcriber: String
+  transcript_notice: String
+  translation_notice: String
+  translator: String
+  type: String
+  type_information: String
+  typesetters: String
+  ui_language: ID
+  variant: String
+  variant_of_x: String
+  video: String
+  videos: String
+  view_on: String
+  view_on_x: String
+  view_scans: String
+  want_it: String
+  watch_content: String
+  weapon: String
+  weapons_description: String
+  width: String
+  wiki: String
+  wiki_description: String
+  wiki_short_description: String
+  x_results: String
+}
+
+input WikiPageFiltersInput {
+  and: [WikiPageFiltersInput]
+  categories: CategoryFiltersInput
+  chronology_items: ChronologyItemFiltersInput
+  createdAt: DateTimeFilterInput
+  definitions: ComponentWikiSpecializationGlossaryItemFiltersInput
+  id: IDFilterInput
+  not: WikiPageFiltersInput
+  or: [WikiPageFiltersInput]
+  slug: StringFilterInput
+  tags: WikiPagesTagFiltersInput
+  translations: ComponentTranslationsWikiFiltersInput
+  updatedAt: DateTimeFilterInput
+  weapon: WeaponStoryFiltersInput
+}
+
+input WikiPageInput {
+  categories: [ID]
+  chronology_items: [ID]
+  definitions: [ComponentWikiSpecializationGlossaryItemInput]
+  slug: String
+  tags: [ID]
+  thumbnail: ID
+  translations: [ComponentTranslationsWikiInput]
+  weapon: ID
+}
+
+input WikiPagesTagFiltersInput {
+  and: [WikiPagesTagFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: WikiPagesTagFiltersInput
+  or: [WikiPagesTagFiltersInput]
+  slug: StringFilterInput
+  titles: ComponentTranslationsSimpleTitleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input WikiPagesTagInput {
+  slug: String
+  titles: [ComponentTranslationsSimpleTitleInput]
+}
