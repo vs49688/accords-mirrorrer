@@ -7,5 +7,5 @@ import (
 var (
 	Version = "(devel)"
 
-	UserAgent = fmt.Sprintf("AccordsMirrorrer/%s (url: https://github.com/vs49688/accords-mirrorrer)", Version)
+	UserAgent = fmt.Sprintf("AccordsMirrorrer/%s (url: https://github.com/accords-mirrorrer/accords-mirrorrer)", Version)
 )
