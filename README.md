@@ -30,7 +30,8 @@ Create a new directory, and run the `accords-mirrorrer` from there:
 * Please be a good netizen and set `--parallelism` to a reasonable value to avoid overloading the server.
 * The process may be interrupted and resumed once the index refresh is completed.
 * If you already have the index, consider specifying `--dont-refresh` to avoid re-downloading it.
-
+* On UNIX-like systems, sending `SIGUSR1` will cause it to checkpoint the current state.
+* I've only tested this on Linux. Windows binaries are provided for convenience only.
 
 ### CLI Usage
 ```
