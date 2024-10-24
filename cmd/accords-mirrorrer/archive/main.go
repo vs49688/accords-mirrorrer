@@ -232,8 +232,9 @@ func archive(ctx context.Context, cfg *configuration) error {
 			Client:      http.DefaultClient,
 			UserAgent:   accords_mirrorrer.UserAgent,
 			Logger:      l,
+			Signals:     []os.Signal{syscall.SIGINT, syscall.SIGTERM, SIGUSR1},
 			SignalHandler: func(ctx context.Context, sig os.Signal, cancel func()) error {
-				if sig == syscall.SIGUSR1 {
+				if sig == SIGUSR1 {
 					if err := accords_mirrorrer.SaveState(state, cfg.StateFile); err != nil {
 						return err
 					}

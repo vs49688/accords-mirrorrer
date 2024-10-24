@@ -6,7 +6,7 @@ toolchain go1.23.2
 
 require (
 	git.sr.ht/~emersion/gqlclient v0.0.0-20230820050442-8873fe0204b9
-	git.vs49688.net/zane/goutils v0.0.0-20241021125300-30cbf8d11272
+	git.vs49688.net/zane/goutils v0.0.0-20241024115648-ce894dbd7e78
 	github.com/urfave/cli/v2 v2.27.5
 )
 

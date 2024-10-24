@@ -32,11 +32,11 @@ func (r *Request) GetDownloadInfo() *DownloadInfo {
 }
 
 type Options struct {
-	Requests          []*Request
-	Parallelism       int
-	Client            *http.Client
-	UserAgent         string
-	Logger            *slog.Logger
-	DontHandleSignals bool
-	SignalHandler     func(ctx context.Context, sig os.Signal, cancel func()) error
+	Requests      []*Request
+	Parallelism   int
+	Client        *http.Client
+	UserAgent     string
+	Logger        *slog.Logger
+	Signals       []os.Signal
+	SignalHandler func(ctx context.Context, sig os.Signal, cancel func()) error
 }

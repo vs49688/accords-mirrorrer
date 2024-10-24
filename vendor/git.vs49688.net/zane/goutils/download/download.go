@@ -124,8 +124,8 @@ func RunAll(ctx context.Context, opts Options) (error, []error) {
 	}
 
 	sigChan := make(chan os.Signal, 10)
-	if !opts.DontHandleSignals {
-		signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM, syscall.SIGUSR1)
+	if len(opts.Signals) > 0 {
+		signal.Notify(sigChan, opts.Signals...)
 	}
 
 	doneChan := make(chan struct{}, 1)

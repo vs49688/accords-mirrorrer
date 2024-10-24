@@ -1,7 +1,7 @@
 git.sr.ht/~emersion/gqlclient v0.0.0-20230820050442-8873fe0204b9 h1:QNwHP6WknvS7X6MEFxCpefQb1QJMqgIIt+vn/PVoMMg=
 git.sr.ht/~emersion/gqlclient v0.0.0-20230820050442-8873fe0204b9/go.mod h1:kvl/JK0Z3VRmtbBxdOJR4ydyXVouUIcFIXgv4H6rVAY=
-git.vs49688.net/zane/goutils v0.0.0-20241021125300-30cbf8d11272 h1:JojPbmEkIrSZm4oqBaiHLk0uyqna4mIi0WpDMgWvs94=
-git.vs49688.net/zane/goutils v0.0.0-20241021125300-30cbf8d11272/go.mod h1:ttAks4DcuG8stzLrDdFDgYHr7dXEx9+Wujvhvlx5xfw=
+git.vs49688.net/zane/goutils v0.0.0-20241024115648-ce894dbd7e78 h1:VuxdbBal7qiHyiMYZN65nE8xLWATOYHoa/wrr3HOpi8=
+git.vs49688.net/zane/goutils v0.0.0-20241024115648-ce894dbd7e78/go.mod h1:ttAks4DcuG8stzLrDdFDgYHr7dXEx9+Wujvhvlx5xfw=
 github.com/PuerkitoBio/goquery v1.10.0 h1:6fiXdLuUvYs2OJSvNRqlNPoBm6YABE226xrbavY5Wv4=
 github.com/PuerkitoBio/goquery v1.10.0/go.mod h1:TjZZl68Q3eGHNBA8CWaxAN7rOU1EbDz3CWuolcO5Yu4=
 github.com/andybalholm/cascadia v1.3.2 h1:3Xi6Dw5lHF15JtdcmAHD3i1+T8plmv7BQ/nsViSLyss=
