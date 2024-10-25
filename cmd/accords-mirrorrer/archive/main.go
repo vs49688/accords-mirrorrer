@@ -216,8 +216,10 @@ func archive(ctx context.Context, cfg *configuration) error {
 	if !cfg.DontDownload {
 		reqs := make([]*download.Request, 0, len(state.Downloads))
 		for _, di := range state.Downloads {
-			req, _ := download.MakeRequest(ctx, di, l)
-			reqs = append(reqs, req)
+			if !di.Completed {
+				req, _ := download.MakeRequest(ctx, di, l)
+				reqs = append(reqs, req)
+			}
 		}
 
 		sort.Slice(reqs, func(i, j int) bool {
