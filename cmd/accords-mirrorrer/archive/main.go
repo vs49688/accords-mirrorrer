@@ -160,6 +160,9 @@ func archive(ctx context.Context, cfg *configuration) error {
 
 	if !cfg.DontRefresh {
 		if err := refreshIndex(ctx, state, lc, hc, l); err != nil {
+			if err2 := accords_mirrorrer.SaveState(state, cfg.StateFile); err2 != nil {
+				err = errors.Join(err, err2)
+			}
 			return err
 		}
 	} else {
