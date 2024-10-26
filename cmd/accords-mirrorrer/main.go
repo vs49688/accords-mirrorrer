@@ -7,10 +7,11 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/vs49688/accords-mirrorrer"
+	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
 	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/archive"
 	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/config"
 	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/migstate"
+	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/state"
 )
 
 func main() {
@@ -31,6 +32,7 @@ func main() {
 	}
 
 	archive.RegisterCommand(&app, &cfg)
+	state.RegisterCommand(&app, &cfg)
 	migstate.RegisterCommand(&app)
 
 	if err := app.Run(os.Args); err != nil {
