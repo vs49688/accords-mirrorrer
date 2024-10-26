@@ -5,6 +5,7 @@ package library
 import (
 	"encoding/json"
 	"fmt"
+
 	gqlclient "git.sr.ht/~emersion/gqlclient"
 )
 
