@@ -1,9 +1,10 @@
 package config
 
 import (
+	"log/slog"
+
 	"github.com/urfave/cli/v2"
 	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"log/slog"
 )
 
 type Configuration struct {
