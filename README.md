@@ -10,6 +10,16 @@ How it works:
 
 ## Instructions
 
+### I just want run it
+
+1. Go to https://github.com/accords-mirrorrer/accords-mirrorrer/releases
+2. Find the latest download for your platform (this is probably `accords-mirrorrer_Windows_x86_64.zip`).
+3. Create a new folder and extract `accords-mirrorrer.exe` to it. Ensure you have plenty of space.
+4. Open a Command Prompt or PowerShell window
+5. Run `.\accords-mirrorrer.exe archive`
+6. Wait
+7. If anything fails you can restart it, and it will pick up from where it left off.
+
 ### Building
 ```
 go build ./cmd/accords-mirrorrer
