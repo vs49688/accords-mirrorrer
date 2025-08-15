@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"reflect"
 
-	"github.com/vs49688/accords-mirrorrer/library"
+	"git.vs49688.net/zane/accords-mirrorrer/library"
 )
 
 func searchEntity[T any](ctx context.Context, log *slog.Logger, idAttrib string, search func(ctx context.Context, page, hitsPerPage int, attributes []string) (*library.SearchResult[T], error)) ([]string, error) {

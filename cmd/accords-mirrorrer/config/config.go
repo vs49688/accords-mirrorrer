@@ -4,7 +4,7 @@ import (
 	"log/slog"
 
 	"github.com/urfave/cli/v2"
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
 )
 
 type Configuration struct {

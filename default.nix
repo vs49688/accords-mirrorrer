@@ -10,7 +10,7 @@ buildGoModule {
   src = ./.;
 
   ldflags = [
-    "-X" "github.com/vs49688/accords-mirrorrer.Version=0.0.${version}-nix"
+    "-X" "git.vs49688.net/zane/accords-mirrorrer.Version=0.0.${version}-nix"
   ];
 
   vendorHash = null;

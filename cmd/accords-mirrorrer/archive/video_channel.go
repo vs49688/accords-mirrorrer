@@ -7,8 +7,8 @@ import (
 	"path"
 	"strings"
 
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"github.com/vs49688/accords-mirrorrer/library"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
+	"git.vs49688.net/zane/accords-mirrorrer/library"
 )
 
 func fetchVideoChannel(ctx context.Context, state *accords_mirrorrer.State, client library.Client, uid string) (*library.VideoChannelProps, error) {

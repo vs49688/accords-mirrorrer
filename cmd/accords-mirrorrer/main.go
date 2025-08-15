@@ -7,10 +7,10 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/archive"
-	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/config"
-	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/state"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
+	"git.vs49688.net/zane/accords-mirrorrer/cmd/accords-mirrorrer/archive"
+	"git.vs49688.net/zane/accords-mirrorrer/cmd/accords-mirrorrer/config"
+	"git.vs49688.net/zane/accords-mirrorrer/cmd/accords-mirrorrer/state"
 )
 
 func main() {

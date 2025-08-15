@@ -12,7 +12,7 @@ import (
 
 	"git.vs49688.net/zane/goutils/download"
 
-	"github.com/vs49688/accords-mirrorrer/library"
+	"git.vs49688.net/zane/accords-mirrorrer/library"
 )
 
 const (

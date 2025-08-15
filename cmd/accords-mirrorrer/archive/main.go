@@ -15,9 +15,9 @@ import (
 
 	"git.vs49688.net/zane/goutils/download"
 
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/config"
-	"github.com/vs49688/accords-mirrorrer/library"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
+	"git.vs49688.net/zane/accords-mirrorrer/cmd/accords-mirrorrer/config"
+	"git.vs49688.net/zane/accords-mirrorrer/library"
 )
 
 type configuration struct {

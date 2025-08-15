@@ -7,8 +7,8 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"github.com/vs49688/accords-mirrorrer/cmd/accords-mirrorrer/config"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
+	"git.vs49688.net/zane/accords-mirrorrer/cmd/accords-mirrorrer/config"
 )
 
 type configuration struct {

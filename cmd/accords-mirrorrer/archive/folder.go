@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log/slog"
 
-	accords_mirrorrer "github.com/vs49688/accords-mirrorrer"
-	"github.com/vs49688/accords-mirrorrer/library"
+	accords_mirrorrer "git.vs49688.net/zane/accords-mirrorrer"
+	"git.vs49688.net/zane/accords-mirrorrer/library"
 )
 
 func fetchFolder(ctx context.Context, state *accords_mirrorrer.State, slug string, client library.Client) (*library.FolderProps, error) {

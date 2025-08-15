@@ -1,4 +1,4 @@
-module github.com/vs49688/accords-mirrorrer
+module git.vs49688.net/zane/accords-mirrorrer
 
 go 1.23
 

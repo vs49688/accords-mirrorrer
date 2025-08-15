@@ -23,7 +23,7 @@ builds:
       - windows
       - darwin
     ldflags:
-      - -X github.com/vs49688/accords-mirrorrer.Version={{ .Version }}
+      - -X git.vs49688.net/zane/accords-mirrorrer.Version={{ .Version }}
     dir: cmd/accords-mirrorrer
 
 archives:
